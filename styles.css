@@ -2359,13 +2359,14 @@ img, svg, canvas {
     display: none;
   }
 
-  /* Nav Actions - Perfectly Sized on Mobile */
+  /* Nav Actions - Perfectly Sized on Mobile (Amazon Style Clean Actions) */
   .nav-actions {
-    gap: 6px;
+    gap: 8px;
   }
 
-  .nav-actions .btn-secondary {
-    display: none;
+  .nav-actions .btn-secondary,
+  .nav-actions .register-trigger-btn {
+    display: none; /* Moved to prominent Hero CTA, Mobile Drawer & Sticky Bottom Nav */
   }
 
   .theme-title {
@@ -2380,13 +2381,6 @@ img, svg, canvas {
   .lang-pill-btn {
     padding: 6px 10px;
     min-height: 38px;
-  }
-
-  .nav-actions .register-trigger-btn {
-    padding: 6px 10px;
-    font-size: 0.78rem;
-    min-height: 38px;
-    letter-spacing: -0.01em;
   }
 
   /* 1-Line Infinite Marquee Ticker on Mobile */
@@ -2465,7 +2459,7 @@ img, svg, canvas {
     width: 100%;
   }
 
-  /* Startup Cards & Blocks on Mobile */
+  /* Startup Cards & Blocks on Mobile - Clean Auto-Fit Card */
   .startup-grid {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -2487,17 +2481,21 @@ img, svg, canvas {
 
   /* Card Action Buttons Stack Cleanly & Auto-Fit */
   .card-action-row {
+    display: flex;
     flex-direction: column;
     width: 100%;
     gap: 8px;
+    margin-top: 14px;
   }
 
+  .btn-card-view,
   .btn-card-connect,
   .btn-deck-sm {
     width: 100%;
     min-height: 44px;
     font-size: 0.88rem;
     justify-content: center;
+    display: flex;
   }
 
   /* Emerging / Rising Startup Spotlight on Mobile */
@@ -2610,12 +2608,7 @@ img, svg, canvas {
   }
 
   .nav-actions {
-    gap: 4px;
-  }
-
-  .nav-actions .register-trigger-btn {
-    padding: 5px 8px;
-    font-size: 0.74rem;
+    gap: 6px;
   }
 
   .logo-mark {
@@ -2640,10 +2633,6 @@ img, svg, canvas {
 
   .brand-name {
     font-size: 0.88rem;
-  }
-
-  .nav-actions .register-trigger-btn {
-    display: none; /* Accessible in the mobile hamburger drawer menu */
   }
 
   .stats-marquee-wrapper {
