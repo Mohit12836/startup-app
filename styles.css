@@ -1081,7 +1081,7 @@ img, svg, canvas {
 /* Dynamic Grid Auto-Fit for Startups (Zero Horizontal Scroll Guarantee) */
 .startup-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: clamp(1.2rem, 2.5vw, 1.8rem);
   width: 100%;
   perspective: 1200px; /* Enable 3D tilt */
@@ -2217,7 +2217,12 @@ img, svg, canvas {
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* Responsive Media Queries */
+/* ==========================================================================
+   16. Comprehensive Mobile-First Responsiveness (Buttons, Blocks & Ergonomics)
+   Tested across: 320px, 360px, 390px, 414px, 480px, 768px, 1024px+
+   ========================================================================== */
+
+/* Tablet & Smaller (< 992px) */
 @media (max-width: 992px) {
   .desktop-nav {
     display: none;
@@ -2225,26 +2230,274 @@ img, svg, canvas {
   .mobile-toggle-btn {
     display: flex;
   }
+  .indore-banner-card,
+  .investor-split-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
-@media (max-width: 640px) {
-  .header-container {
-    height: 64px;
+/* Standard Mobile (< 768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    padding-block: clamp(2rem, 5vw, 3.5rem);
   }
+  .stat-strip-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 16px 12px;
+  }
+  .stat-number, .stat-suffix, .stat-prefix {
+    font-size: 1.85rem;
+  }
+  .stat-label {
+    font-size: 0.76rem;
+  }
+}
+
+/* Small Mobile (< 540px) - Buttons & Blocks Full Adaptation */
+@media (max-width: 540px) {
+  .header-container {
+    height: 62px;
+    padding-inline: 12px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
   .brand-tag {
     display: none;
   }
+
+  /* Nav Actions - Compact & Non-Breaking */
+  .nav-actions {
+    gap: 6px;
+  }
+
   .nav-actions .btn-secondary {
     display: none;
   }
+
   .theme-title {
-    display: none; /* Icon/dot only on small mobile to save space */
+    display: none; /* Show dot only on mobile */
   }
+
+  .theme-pill-btn {
+    padding: 6px 10px;
+    min-height: 38px;
+  }
+
+  .lang-pill-btn {
+    padding: 6px 10px;
+    min-height: 38px;
+  }
+
+  .nav-actions .register-trigger-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    min-height: 38px;
+    letter-spacing: -0.01em;
+  }
+
+  /* Hero Buttons - 100% Mobile Fluid Auto-Fit */
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    font-size: 0.96rem;
+    padding: 12px 18px;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .hero-trust-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+  }
+
+  /* Search & Command Bar */
   .search-command-bar {
     flex-direction: column;
     align-items: stretch;
+    padding: 10px;
+    gap: 8px;
   }
+
+  .search-input-wrap {
+    min-height: 44px;
+    width: 100%;
+  }
+
   .custom-select-wrap {
     flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .filter-select {
+    min-height: 44px;
+    font-size: 0.88rem;
+  }
+
+  /* Startup Cards & Blocks */
+  .startup-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .startup-card {
+    padding: 16px 14px;
+    border-radius: var(--radius-sm);
+  }
+
+  .startup-name {
+    font-size: 1.05rem;
+  }
+
+  .startup-tagline {
+    font-size: 0.88rem;
+    margin-bottom: 12px;
+  }
+
+  /* Card Action Buttons Stack Cleanly */
+  .card-action-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .btn-card-connect,
+  .btn-deck-sm {
+    width: 100%;
+    min-height: 44px;
+    font-size: 0.88rem;
+    justify-content: center;
+  }
+
+  /* Indore Banner Card */
+  .indore-banner-card {
+    padding: 18px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .spotlight-title {
+    font-size: 1.5rem;
+  }
+
+  .spotlight-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Meetup Ticket Card */
+  .meetup-ticket-card {
+    padding: 16px 12px;
+  }
+
+  .ticket-details-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .ticket-actions .btn {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  /* Investor Section Buttons */
+  .inv-cta-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .inv-cta-row .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+  }
+
+  /* Final CTA Section Buttons */
+  .final-cta-card {
+    padding: 24px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .final-cta-title {
+    font-size: 1.55rem;
+  }
+
+  .final-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .final-cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  /* Modal Dialog for Mobile */
+  .modal-dialog {
+    max-width: 95vw;
+    width: 100%;
+    padding: 16px 12px;
+    max-height: 94vh;
+  }
+
+  .modal-form {
+    gap: 12px;
+  }
+
+  .doc-input-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Extra Small Phones (< 360px: iPhone SE / 320px) */
+@media (max-width: 360px) {
+  .header-container {
+    padding-inline: 8px;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+  }
+
+  .stat-strip-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .ticket-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Touch Device Ergonomics: Disable Hover-Bound Tilt, Retain Smooth Physics */
+@media (hover: none) and (pointer: coarse) {
+  .startup-card,
+  .step-card,
+  .indore-banner-card {
+    transform: none !important;
+  }
+  .startup-card:hover {
+    transform: none !important;
+  }
+  .btn:hover {
+    transform: none !important;
+  }
+  .btn:active {
+    transform: scale(0.97) !important;
   }
 }
