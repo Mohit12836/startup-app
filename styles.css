@@ -1,6 +1,9 @@
 /* ==========================================================================
    SETUBANDH (सेतुबंध) — Master Design System & Responsive CSS
    Standards: UI/UX Pro Max, Responsive-UI-Master, Color-Magic v4.0
+   Themes: Sapphire Aurora (Default) | Royal Obsidian Amber | Neo Matrix Emerald
+   Features: Waving Living Lights (लहराती लाइटें), Shimmer Magnetic Buttons, 
+             3D Tilt & Cursor Spotlight Animated Blocks
    ========================================================================== */
 
 /* 1. Mandatory Responsive Base Reset */
@@ -10,48 +13,129 @@
   padding: 0;
 }
 
-:root {
-  /* Color Architecture (Anti-Blackout, Luminous Midnight) */
+/* ==========================================================================
+   THEME 1: Sapphire Aurora (Default Midnight Blue & Electric Saffron)
+   ========================================================================== */
+:root,
+[data-theme="sapphire"] {
+  --theme-name: "sapphire";
   --bg-deep: #060b18;
   --bg-surface: #0a1126;
   --bg-card: rgba(14, 23, 48, 0.75);
-  --bg-card-hover: rgba(22, 34, 68, 0.85);
-  --bg-input: rgba(11, 18, 38, 0.85);
+  --bg-card-hover: rgba(22, 36, 74, 0.88);
+  --bg-input: rgba(11, 18, 38, 0.88);
 
   /* Contrast Dominance (WCAG AAA) */
-  --text-main: #f8fafc;        /* 98% Luminance Optical White */
-  --text-muted: #94a3b8;       /* Crisp Slate with 7:1+ contrast */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
   --text-sub: #cbd5e1;
   --text-dim: #64748b;
 
-  /* Brand Accents */
-  --accent-saffron: #f59e0b;   /* Bharat Saffron / Energy */
-  --accent-saffron-light: #fbbf24;
-  --accent-saffron-glow: rgba(245, 158, 11, 0.28);
-  --accent-cyan: #38bdf8;      /* Central India Tech Sky */
-  --accent-indigo: #6366f1;
-  --accent-emerald: #10b981;   /* Verified Tick Green */
-  --accent-emerald-glow: rgba(16, 185, 129, 0.22);
+  /* Accents */
+  --accent-primary: #f59e0b;
+  --accent-primary-light: #fbbf24;
+  --accent-primary-gradient: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  --accent-glow-primary: rgba(245, 158, 11, 0.38);
 
-  /* Border & Glass */
+  --accent-secondary: #38bdf8;
+  --accent-tertiary: #6366f1;
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+
+  /* Borders & Shadows */
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-card: rgba(99, 102, 241, 0.18);
-  --border-card-hover: rgba(245, 158, 11, 0.45);
-  --glass-shadow: 0 16px 40px -10px rgba(2, 6, 23, 0.65);
-  --glow-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+  --border-card: rgba(99, 102, 241, 0.22);
+  --border-card-hover: rgba(245, 158, 11, 0.5);
+  --glass-shadow: 0 16px 40px -10px rgba(2, 6, 23, 0.7);
 
-  /* Typography */
+  /* Waving Aurora Gradients */
+  --aurora-wave-1: radial-gradient(ellipse 65% 55% at 50% 25%, rgba(99, 102, 241, 0.32) 0%, rgba(245, 158, 11, 0.22) 50%, rgba(56, 189, 248, 0.12) 75%, transparent 90%);
+  --ribbon-grad-1: linear-gradient(120deg, rgba(56, 189, 248, 0.25), rgba(99, 102, 241, 0.35), rgba(245, 158, 11, 0.28));
+  --ribbon-grad-2: linear-gradient(240deg, rgba(245, 158, 11, 0.22), rgba(16, 185, 129, 0.18), rgba(99, 102, 241, 0.26));
+}
+
+/* ==========================================================================
+   THEME 2: Royal Obsidian Amber (Warm Molten Charcoal & Golden Saffron)
+   Strictly Non-White, Deep Velvety Obsidian Canvas with Molten Fire
+   ========================================================================== */
+[data-theme="amber"] {
+  --theme-name: "amber";
+  --bg-deep: #0b0713;
+  --bg-surface: #140d22;
+  --bg-card: rgba(26, 16, 44, 0.78);
+  --bg-card-hover: rgba(38, 24, 64, 0.9);
+  --bg-input: rgba(20, 12, 34, 0.88);
+
+  --text-main: #fdfaf6;
+  --text-muted: #a89bb8;
+  --text-sub: #dcd3e8;
+  --text-dim: #736484;
+
+  --accent-primary: #fbbf24;
+  --accent-primary-light: #fef08a;
+  --accent-primary-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+  --accent-glow-primary: rgba(251, 191, 36, 0.45);
+
+  --accent-secondary: #fb923c;
+  --accent-tertiary: #c084fc;
+  --accent-emerald: #34d399;
+  --accent-emerald-glow: rgba(52, 211, 153, 0.28);
+
+  --border-subtle: rgba(251, 191, 36, 0.1);
+  --border-card: rgba(245, 158, 11, 0.28);
+  --border-card-hover: rgba(251, 191, 36, 0.6);
+  --glass-shadow: 0 16px 40px -10px rgba(11, 7, 19, 0.85);
+
+  --aurora-wave-1: radial-gradient(ellipse 65% 55% at 50% 25%, rgba(245, 158, 11, 0.35) 0%, rgba(192, 132, 252, 0.24) 48%, rgba(249, 115, 22, 0.16) 72%, transparent 90%);
+  --ribbon-grad-1: linear-gradient(120deg, rgba(245, 158, 11, 0.3), rgba(192, 132, 252, 0.32), rgba(249, 115, 22, 0.35));
+  --ribbon-grad-2: linear-gradient(240deg, rgba(251, 191, 36, 0.28), rgba(217, 70, 239, 0.22), rgba(245, 158, 11, 0.25));
+}
+
+/* ==========================================================================
+   THEME 3: Neo Matrix Emerald (Cyber Pine & Bioluminescent Mint)
+   High-Tech Dark Futuristic Cyber Atmosphere, Zero Harsh White
+   ========================================================================== */
+[data-theme="emerald"] {
+  --theme-name: "emerald";
+  --bg-deep: #040e0c;
+  --bg-surface: #071916;
+  --bg-card: rgba(10, 32, 28, 0.78);
+  --bg-card-hover: rgba(14, 46, 40, 0.9);
+  --bg-input: rgba(8, 24, 21, 0.88);
+
+  --text-main: #f0fdf4;
+  --text-muted: #86efac;
+  --text-sub: #bbf7d0;
+  --text-dim: #4ade80;
+
+  --accent-primary: #10b981;
+  --accent-primary-light: #34d399;
+  --accent-primary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --accent-glow-primary: rgba(16, 185, 129, 0.45);
+
+  --accent-secondary: #06b6d4;
+  --accent-tertiary: #14b8a6;
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.3);
+
+  --border-subtle: rgba(16, 185, 129, 0.12);
+  --border-card: rgba(16, 185, 129, 0.28);
+  --border-card-hover: rgba(52, 211, 153, 0.65);
+  --glass-shadow: 0 16px 40px -10px rgba(4, 14, 12, 0.85);
+
+  --aurora-wave-1: radial-gradient(ellipse 65% 55% at 50% 25%, rgba(16, 185, 129, 0.32) 0%, rgba(6, 182, 212, 0.25) 50%, rgba(34, 197, 94, 0.12) 75%, transparent 90%);
+  --ribbon-grad-1: linear-gradient(120deg, rgba(16, 185, 129, 0.28), rgba(6, 182, 212, 0.32), rgba(52, 211, 153, 0.26));
+  --ribbon-grad-2: linear-gradient(240deg, rgba(6, 182, 212, 0.25), rgba(34, 197, 94, 0.22), rgba(20, 184, 166, 0.3));
+}
+
+/* Base Typographic Tokens */
+:root {
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-devanagari: 'Yantramanav', 'Plus Jakarta Sans', sans-serif;
-  --font-display: 'Rozha One', serif;
-
-  /* Radii */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-pill: 9999px;
-
-  /* Transitions */
   --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-spring: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -66,13 +150,13 @@ html, body {
   color: var(--text-main);
   font-family: var(--font-sans);
   line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 [data-lang="hi"] body {
   font-family: var(--font-devanagari);
 }
 
-/* Fluid Auto-Fit Container */
 .container {
   width: 100%;
   max-width: min(100% - 2rem, 1280px);
@@ -87,64 +171,123 @@ img, svg, canvas {
 }
 
 /* ==========================================================================
-   2. Living Aurora & Dynamic Lighting Systems
+   2. Living Waving Lights (लहराती लाइटें & Dynamic Ambient Ribbons)
    ========================================================================== */
 
 @keyframes auroraWave {
   0%, 100% {
     transform: translate(-50%, 0) scale(1) rotate(0deg);
-    opacity: 0.55;
+    opacity: 0.6;
   }
   50% {
-    transform: translate(-48%, -24px) scale(1.1) rotate(3deg);
-    opacity: 0.78;
+    transform: translate(-48%, -30px) scale(1.15) rotate(4deg);
+    opacity: 0.85;
+  }
+}
+
+@keyframes ribbonFloat1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  33% {
+    transform: translate(40px, -50px) rotate(8deg) scale(1.12);
+    border-radius: 60% 40% 35% 65% / 50% 60% 40% 50%;
+  }
+  66% {
+    transform: translate(-30px, 30px) rotate(-6deg) scale(0.95);
+    border-radius: 35% 65% 60% 40% / 60% 40% 50% 50%;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+}
+
+@keyframes ribbonFloat2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
+  }
+  50% {
+    transform: translate(-50px, -35px) rotate(-10deg) scale(1.18);
+    border-radius: 70% 30% 60% 40% / 55% 45% 55% 45%;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
   }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.08); opacity: 0.7; }
+  0%, 100% { transform: scale(1); opacity: 0.45; }
+  50% { transform: scale(1.1); opacity: 0.8; }
 }
 
+/* Waving Aurora Layers */
 .aurora-ambient-glow {
   position: absolute;
   top: -120px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(100vw, 1100px);
-  height: 580px;
-  background: radial-gradient(ellipse 70% 50% at 50% 25%, 
-              rgba(99, 102, 241, 0.28) 0%, 
-              rgba(245, 158, 11, 0.20) 45%, 
-              rgba(56, 189, 248, 0.12) 65%, 
-              transparent 80%);
-  filter: blur(90px);
+  width: min(100vw, 1150px);
+  height: 600px;
+  background: var(--aurora-wave-1);
+  filter: blur(95px);
   pointer-events: none;
   z-index: 0;
-  animation: auroraWave 14s ease-in-out infinite;
+  animation: auroraWave 12s ease-in-out infinite;
+  transition: background 0.5s ease;
+}
+
+.aurora-waving-ribbon {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(85px);
+  opacity: 0.65;
+  z-index: 0;
+  transition: background 0.5s ease;
+}
+
+.ribbon-1 {
+  top: 150px;
+  left: -100px;
+  width: min(90vw, 650px);
+  height: 480px;
+  background: var(--ribbon-grad-1);
+  animation: ribbonFloat1 16s ease-in-out infinite;
+}
+
+.ribbon-2 {
+  top: 650px;
+  right: -80px;
+  width: min(85vw, 600px);
+  height: 450px;
+  background: var(--ribbon-grad-2);
+  animation: ribbonFloat2 20s ease-in-out infinite;
 }
 
 .aurora-spotlight-secondary {
   position: absolute;
-  top: 900px;
-  right: -5%;
+  top: 1300px;
+  left: 5%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, transparent 70%);
-  filter: blur(100px);
+  background: var(--ribbon-grad-1);
+  filter: blur(110px);
   pointer-events: none;
   z-index: 0;
-  animation: pulseGlow 9s ease-in-out infinite;
+  animation: pulseGlow 10s ease-in-out infinite;
 }
 
 .aurora-spotlight-accent {
   position: absolute;
-  top: 1800px;
-  left: -5%;
+  top: 2200px;
+  right: 5%;
   width: 550px;
   height: 550px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
-  filter: blur(110px);
+  background: var(--ribbon-grad-2);
+  filter: blur(120px);
   pointer-events: none;
   z-index: 0;
 }
@@ -158,10 +301,26 @@ img, svg, canvas {
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-size: 44px 44px;
   mask-image: radial-gradient(ellipse at 50% 30%, black 30%, transparent 80%);
   pointer-events: none;
   z-index: 0;
+}
+
+/* Interactive Cursor Ambient Orb (Laharati Interactive Light) */
+.ambient-interactive-orb {
+  position: fixed;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow-primary) 0%, transparent 68%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.55;
+  transition: opacity 0.3s ease, background 0.4s ease;
+  display: none; /* Enabled on pointermove via JS */
 }
 
 /* ==========================================================================
@@ -169,8 +328,8 @@ img, svg, canvas {
    ========================================================================== */
 
 .announcement-banner {
-  background: linear-gradient(90deg, rgba(245, 158, 11, 0.18), rgba(99, 102, 241, 0.22), rgba(245, 158, 11, 0.18));
-  border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.16), rgba(99, 102, 241, 0.2), rgba(245, 158, 11, 0.16));
+  border-bottom: 1px solid var(--border-subtle);
   font-size: clamp(0.75rem, 0.4vw + 0.55rem, 0.875rem);
   padding: 8px 0;
   position: relative;
@@ -189,17 +348,17 @@ img, svg, canvas {
 .pulse-indicator {
   width: 8px;
   height: 8px;
-  background: var(--accent-saffron);
+  background: var(--accent-primary);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-saffron);
+  box-shadow: 0 0 10px var(--accent-primary);
   animation: pulseGlow 1.8s infinite;
 }
 
 .banner-link {
-  color: var(--accent-saffron-light);
+  color: var(--accent-primary-light);
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 1px dashed var(--accent-saffron-light);
+  border-bottom: 1px dashed var(--accent-primary-light);
   transition: var(--transition-fast);
 }
 
@@ -215,12 +374,20 @@ img, svg, canvas {
   position: sticky;
   top: 0;
   width: 100%;
-  background: rgba(6, 11, 24, 0.85);
+  background: rgba(6, 11, 24, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-subtle);
   z-index: 50;
-  transition: all 0.3s ease;
+  transition: background 0.4s ease;
+}
+
+[data-theme="amber"] .site-header {
+  background: rgba(11, 7, 19, 0.9);
+}
+
+[data-theme="emerald"] .site-header {
+  background: rgba(4, 14, 12, 0.9);
 }
 
 .header-container {
@@ -231,7 +398,6 @@ img, svg, canvas {
   gap: 1rem;
 }
 
-/* Brand Logo */
 .brand-logo {
   display: flex;
   align-items: center;
@@ -244,8 +410,8 @@ img, svg, canvas {
   width: 42px;
   height: 42px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(245, 158, 11, 0.15));
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -275,17 +441,15 @@ img, svg, canvas {
 .hindi-sub {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--accent-saffron);
+  color: var(--accent-primary);
 }
 
 .brand-tag {
   font-size: 0.72rem;
   color: var(--text-muted);
   font-weight: 500;
-  letter-spacing: 0.02em;
 }
 
-/* Desktop Navigation */
 .desktop-nav {
   display: flex;
   align-items: center;
@@ -300,19 +464,51 @@ img, svg, canvas {
   transition: var(--transition-fast);
   padding: 6px 10px;
   border-radius: var(--radius-sm);
-  position: relative;
 }
 
 .nav-item:hover {
   color: #fff;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-/* Actions */
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+}
+
+/* Theme Switcher Pill Button */
+.theme-pill-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-card);
+  color: var(--text-main);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+  min-height: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--accent-glow-primary);
+}
+
+.theme-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+  animation: pulseGlow 2s infinite;
 }
 
 /* Language Pill Button */
@@ -329,86 +525,102 @@ img, svg, canvas {
   align-items: center;
   gap: 4px;
   transition: var(--transition-fast);
-  min-height: 38px;
+  min-height: 40px;
 }
 
 .lang-pill-btn:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
 }
 
 .lang-code.active {
-  color: var(--accent-saffron);
+  color: var(--accent-primary);
 }
 
-.lang-divider {
-  opacity: 0.4;
-}
+/* ==========================================================================
+   5. Attractive Magnetic Buttons (आकर्षक बटन्स & Shimmer Beams)
+   ========================================================================== */
 
-/* Buttons System */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
   line-height: 1.2;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: var(--radius-md);
   cursor: pointer;
   text-decoration: none;
-  transition: all var(--transition-fast);
   border: 1px solid transparent;
-  min-height: 44px; /* Accessible 44px Touch Target */
-  min-width: 44px;
+  min-height: 44px;
   position: relative;
   overflow: hidden;
   user-select: none;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background 0.3s ease;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
 }
 
 .btn:active {
-  transform: scale(0.97);
+  transform: translateY(1px) scale(0.96);
 }
 
+/* Primary Button with Neon Radiant Glow */
 .btn-primary {
-  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  background: var(--accent-primary-gradient);
   color: #060b18;
   font-weight: 800;
-  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 6px 20px var(--accent-glow-primary), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.5);
-  background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+  box-shadow: 0 10px 30px var(--accent-glow-primary), 0 0 20px var(--accent-primary-light);
 }
 
+/* Shimmer Sweep Animation on Button */
+@keyframes shimmerSweep {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: shimmerSweep 3.2s infinite;
+  pointer-events: none;
+}
+
+/* Secondary Button with Glass Border */
 .btn-secondary {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.15);
   color: #fff;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.25);
 }
 
 .btn-sm {
-  padding: 7px 14px;
-  font-size: 0.85rem;
-  min-height: 38px;
+  padding: 7px 16px;
+  font-size: 0.86rem;
+  min-height: 40px;
 }
 
 .btn-lg {
-  padding: 14px 28px;
+  padding: 15px 30px;
   font-size: 1.05rem;
   border-radius: var(--radius-md);
   min-height: 52px;
@@ -425,7 +637,7 @@ img, svg, canvas {
 }
 
 .btn:hover .btn-arrow {
-  transform: translateX(4px);
+  transform: translateX(5px);
 }
 
 .search-icon-sm {
@@ -452,17 +664,16 @@ img, svg, canvas {
   height: 2px;
   background: #fff;
   border-radius: 2px;
-  transition: var(--transition-fast);
 }
 
 /* ==========================================================================
-   5. Mobile Drawer Menu
+   6. Mobile Drawer Menu
    ========================================================================== */
 
 .mobile-drawer {
   position: fixed;
   inset: 0;
-  background: rgba(2, 6, 23, 0.85);
+  background: rgba(2, 6, 23, 0.88);
   backdrop-filter: blur(16px);
   z-index: 100;
   display: none;
@@ -512,13 +723,13 @@ img, svg, canvas {
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .mobile-link {
   color: var(--text-main);
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   padding: 12px 14px;
   border-radius: var(--radius-sm);
@@ -526,8 +737,8 @@ img, svg, canvas {
 }
 
 .mobile-link:hover {
-  background: rgba(245, 158, 11, 0.15);
-  color: var(--accent-saffron-light);
+  background: var(--accent-glow-primary);
+  color: var(--accent-primary-light);
 }
 
 .mobile-drawer-actions {
@@ -538,7 +749,7 @@ img, svg, canvas {
 }
 
 /* ==========================================================================
-   6. Hero Section
+   7. Hero Section
    ========================================================================== */
 
 .hero-section {
@@ -554,33 +765,39 @@ img, svg, canvas {
   align-items: center;
 }
 
+/* Floating Trust Badge */
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 .hero-badge-wrap {
   margin-bottom: clamp(1rem, 2vw, 1.8rem);
+  animation: floatBadge 4s ease-in-out infinite;
 }
 
 .hero-trust-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 18px;
-  background: rgba(99, 102, 241, 0.12);
-  border: 1px solid rgba(99, 102, 241, 0.35);
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-pill);
-  font-size: clamp(0.78rem, 0.5vw + 0.6rem, 0.9rem);
+  font-size: clamp(0.78rem, 0.5vw + 0.6rem, 0.92rem);
   font-weight: 600;
-  color: #e0e7ff;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15);
+  color: var(--text-main);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .badge-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #38bdf8;
-  box-shadow: 0 0 8px #38bdf8;
+  background: var(--accent-secondary);
+  box-shadow: 0 0 10px var(--accent-secondary);
 }
 
-/* Fluid Hero Typography via clamp() */
 .hero-title {
   font-size: clamp(2.1rem, 5vw + 1rem, 4.3rem);
   font-weight: 900;
@@ -591,14 +808,14 @@ img, svg, canvas {
 }
 
 .text-gradient-saffron {
-  background: linear-gradient(135deg, #f59e0b 20%, #fbbf24 60%, #ea580c 100%);
+  background: var(--accent-primary-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-glow-light {
   color: #ffffff;
-  text-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
 }
 
 .hero-lead {
@@ -619,7 +836,6 @@ img, svg, canvas {
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
-/* Micro Trust Row */
 .hero-trust-row {
   display: flex;
   align-items: center;
@@ -659,6 +875,12 @@ img, svg, canvas {
   padding: clamp(1.2rem, 3vw, 2rem);
   box-shadow: var(--glass-shadow);
   gap: 1.5rem;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.stat-strip-container:hover {
+  border-color: var(--border-card-hover);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent-glow-primary);
 }
 
 .stat-box {
@@ -677,7 +899,7 @@ img, svg, canvas {
 }
 
 .stat-suffix, .stat-prefix {
-  color: var(--accent-saffron);
+  color: var(--accent-primary);
 }
 
 .stat-label {
@@ -687,17 +909,14 @@ img, svg, canvas {
   font-weight: 500;
 }
 
-.stat-divider {
-  display: none; /* Auto-fit grid handles layout naturally */
-}
-
 /* ==========================================================================
-   7. Directory Search & Cards Grid
+   8. Directory Search & Animated Cards Grid
+   Features: 3D Tilt, Cursor Spotlight, Border Beam Glow
    ========================================================================== */
 
 .directory-section {
   padding-block: clamp(3.5rem, 7vw, 6rem);
-  background: linear-gradient(180deg, transparent 0%, rgba(10, 17, 38, 0.6) 30%, transparent 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 17, 38, 0.5) 30%, transparent 100%);
   position: relative;
   z-index: 10;
 }
@@ -715,10 +934,10 @@ img, svg, canvas {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent-cyan);
+  color: var(--accent-secondary);
   background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  padding: 4px 12px;
+  border: 1px solid var(--border-subtle);
+  padding: 4px 14px;
   border-radius: var(--radius-pill);
   margin-bottom: 12px;
 }
@@ -737,13 +956,12 @@ img, svg, canvas {
   color: var(--text-sub);
 }
 
-/* Command Search Bar */
+/* Search Command Bar */
 .search-command-bar {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(14, 23, 48, 0.9);
-  backdrop-filter: blur(20px);
+  background: var(--bg-surface);
   border: 1px solid var(--border-card);
   padding: 8px 12px;
   border-radius: var(--radius-md);
@@ -832,7 +1050,6 @@ img, svg, canvas {
   padding-bottom: 12px;
   margin-bottom: 28px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
 
 .cat-pill {
@@ -855,10 +1072,10 @@ img, svg, canvas {
 }
 
 .cat-pill.active {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(99, 102, 241, 0.25));
-  border-color: var(--accent-saffron);
-  color: #fff;
-  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+  background: var(--accent-primary-gradient);
+  color: #060b18;
+  border-color: transparent;
+  box-shadow: 0 4px 15px var(--accent-glow-primary);
 }
 
 /* Dynamic Grid Auto-Fit for Startups (Zero Horizontal Scroll Guarantee) */
@@ -867,9 +1084,10 @@ img, svg, canvas {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: clamp(1.2rem, 2.5vw, 1.8rem);
   width: 100%;
+  perspective: 1200px; /* Enable 3D tilt */
 }
 
-/* Individual Startup Card */
+/* Individual Startup Card with Dynamic Lighting & Tilt */
 .startup-card {
   background: var(--bg-card);
   backdrop-filter: blur(14px);
@@ -880,32 +1098,33 @@ img, svg, canvas {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all var(--transition-fast);
   position: relative;
   overflow: hidden;
   box-shadow: var(--glass-shadow);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  transform-style: preserve-3d;
 }
 
+/* Moving Border Glow Beam on Card Top */
 .startup-card::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: -100%;
+  width: 200%;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo), var(--accent-saffron));
-  opacity: 0.6;
-  transition: opacity var(--transition-fast);
+  background: linear-gradient(90deg, transparent, var(--accent-secondary), var(--accent-primary), transparent);
+  transition: transform 0.6s ease;
 }
 
 .startup-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px) rotateX(2deg);
   border-color: var(--border-card-hover);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 158, 11, 0.15);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px var(--accent-glow-primary);
 }
 
 .startup-card:hover::before {
-  opacity: 1;
+  transform: translateX(50%);
 }
 
 .card-top-row {
@@ -926,13 +1145,18 @@ img, svg, canvas {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   border: 1px solid var(--border-subtle);
   flex-shrink: 0;
+  transition: transform var(--transition-spring);
+}
+
+.startup-card:hover .startup-logo-box {
+  transform: scale(1.1) rotate(4deg);
 }
 
 .startup-name {
@@ -958,7 +1182,7 @@ img, svg, canvas {
   font-weight: 700;
   color: var(--accent-emerald);
   background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.35);
+  border: 1px solid var(--accent-emerald-glow);
   padding: 3px 8px;
   border-radius: var(--radius-pill);
   flex-shrink: 0;
@@ -997,13 +1221,11 @@ img, svg, canvas {
 }
 
 .meta-chip.stage {
-  color: var(--accent-cyan);
-  border-color: rgba(56, 189, 248, 0.3);
+  color: var(--accent-secondary);
 }
 
 .meta-chip.funding {
-  color: var(--accent-saffron-light);
-  border-color: rgba(245, 158, 11, 0.3);
+  color: var(--accent-primary-light);
 }
 
 .card-action-row {
@@ -1015,8 +1237,8 @@ img, svg, canvas {
 
 .btn-card-connect {
   flex: 1;
-  background: rgba(99, 102, 241, 0.15);
-  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-card);
   color: #fff;
   font-size: 0.88rem;
   padding: 8px 12px;
@@ -1024,8 +1246,11 @@ img, svg, canvas {
 }
 
 .btn-card-connect:hover {
-  background: rgba(99, 102, 241, 0.35);
-  border-color: #818cf8;
+  background: var(--accent-primary-gradient);
+  color: #060b18;
+  font-weight: 800;
+  border-color: transparent;
+  box-shadow: 0 4px 15px var(--accent-glow-primary);
 }
 
 .btn-deck-sm {
@@ -1039,7 +1264,7 @@ img, svg, canvas {
 
 .btn-deck-sm:hover {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Empty State */
@@ -1065,8 +1290,8 @@ img, svg, canvas {
   text-align: center;
   margin-top: clamp(2.5rem, 5vw, 4rem);
   padding: 24px;
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
@@ -1075,7 +1300,7 @@ img, svg, canvas {
 }
 
 /* ==========================================================================
-   8. Indore Spotlight Section
+   9. Indore Spotlight Section
    ========================================================================== */
 
 .indore-spotlight-section {
@@ -1088,12 +1313,17 @@ img, svg, canvas {
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
   gap: clamp(1.5rem, 4vw, 3rem);
-  background: linear-gradient(135deg, rgba(14, 23, 48, 0.9) 0%, rgba(20, 32, 65, 0.85) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: clamp(1.5rem, 4vw, 3rem);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 158, 11, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px var(--accent-glow-primary);
   align-items: center;
+  transition: transform var(--transition-fast);
+}
+
+.indore-banner-card:hover {
+  transform: translateY(-4px);
 }
 
 @media (max-width: 900px) {
@@ -1104,7 +1334,7 @@ img, svg, canvas {
 
 .spotlight-tag {
   display: inline-block;
-  color: var(--accent-saffron);
+  color: var(--accent-primary);
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1161,7 +1391,7 @@ img, svg, canvas {
 
 /* Meetup Ticket Card */
 .meetup-ticket-card {
-  background: rgba(6, 11, 24, 0.88);
+  background: var(--bg-surface);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
   padding: clamp(1.2rem, 3vw, 2rem);
@@ -1177,7 +1407,7 @@ img, svg, canvas {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #f59e0b, #10b981);
+  background: var(--accent-primary-gradient);
 }
 
 .ticket-header {
@@ -1190,18 +1420,17 @@ img, svg, canvas {
 .live-dot-meetup {
   width: 10px;
   height: 10px;
-  background: #10b981;
+  background: var(--accent-emerald);
   border-radius: 50%;
-  box-shadow: 0 0 10px #10b981;
+  box-shadow: 0 0 10px var(--accent-emerald);
   animation: pulseGlow 2s infinite;
 }
 
 .ticket-badge {
   font-size: 0.78rem;
   font-weight: 700;
-  color: #a7f3d0;
+  color: var(--accent-emerald);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .ticket-title {
@@ -1246,7 +1475,7 @@ img, svg, canvas {
 }
 
 .text-emerald {
-  color: #34d399 !important;
+  color: var(--accent-emerald) !important;
 }
 
 .ticket-actions {
@@ -1258,12 +1487,12 @@ img, svg, canvas {
 
 .ticket-seats-left {
   font-size: 0.8rem;
-  color: var(--accent-saffron-light);
+  color: var(--accent-primary-light);
   font-weight: 600;
 }
 
 /* ==========================================================================
-   9. Steps / How it Works
+   10. Steps / How it Works
    ========================================================================== */
 
 .how-it-works-section {
@@ -1284,12 +1513,12 @@ img, svg, canvas {
   border-radius: var(--radius-md);
   padding: clamp(1.4rem, 2.5vw, 2rem);
   position: relative;
-  transition: transform var(--transition-fast);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
 }
 
 .step-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-5px);
+  border-color: var(--border-card-hover);
 }
 
 .step-number {
@@ -1306,12 +1535,17 @@ img, svg, canvas {
   width: 52px;
   height: 52px;
   border-radius: var(--radius-sm);
-  background: rgba(99, 102, 241, 0.12);
-  color: var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
+  transition: transform var(--transition-spring);
+}
+
+.step-card:hover .step-icon-wrap {
+  transform: scale(1.15) rotate(6deg);
 }
 
 .step-icon-wrap svg {
@@ -1333,7 +1567,7 @@ img, svg, canvas {
 }
 
 /* ==========================================================================
-   10. Investor Hub Section
+   11. Investor Hub Section
    ========================================================================== */
 
 .investor-hub-section {
@@ -1401,7 +1635,7 @@ img, svg, canvas {
 }
 
 .inv-panel-card {
-  background: rgba(6, 11, 24, 0.75);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: clamp(1.2rem, 3vw, 2rem);
@@ -1418,13 +1652,12 @@ img, svg, canvas {
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--text-muted);
 }
 
 .inv-badge-live {
   background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
+  color: var(--accent-emerald);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 2px 8px;
@@ -1449,8 +1682,8 @@ img, svg, canvas {
 }
 
 .inv-quote-box {
-  background: rgba(245, 158, 11, 0.06);
-  border-left: 3px solid var(--accent-saffron);
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--accent-primary);
   padding: 14px 16px;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
@@ -1473,7 +1706,7 @@ img, svg, canvas {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--accent-saffron);
+  background: var(--accent-primary);
   color: #060b18;
   display: flex;
   align-items: center;
@@ -1496,7 +1729,7 @@ img, svg, canvas {
 }
 
 /* ==========================================================================
-   11. FAQ Accordion
+   12. FAQ Accordion
    ========================================================================== */
 
 .faq-section {
@@ -1524,7 +1757,7 @@ img, svg, canvas {
 }
 
 .faq-card.open {
-  border-color: rgba(99, 102, 241, 0.4);
+  border-color: var(--border-card-hover);
 }
 
 .faq-question-btn {
@@ -1546,7 +1779,7 @@ img, svg, canvas {
 
 .faq-arrow {
   font-size: 1.4rem;
-  color: var(--accent-saffron);
+  color: var(--accent-primary);
   margin-left: 12px;
   line-height: 1;
 }
@@ -1571,7 +1804,7 @@ img, svg, canvas {
 }
 
 /* ==========================================================================
-   12. Final CTA Banner
+   13. Final CTA Banner
    ========================================================================== */
 
 .final-cta-section {
@@ -1581,8 +1814,8 @@ img, svg, canvas {
 }
 
 .final-cta-card {
-  background: radial-gradient(ellipse 80% 50% at 50% 50%, rgba(99, 102, 241, 0.25) 0%, rgba(245, 158, 11, 0.15) 50%, rgba(14, 23, 48, 0.8) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.35);
+  background: radial-gradient(ellipse 80% 50% at 50% 50%, var(--accent-glow-primary) 0%, var(--bg-card) 75%);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: clamp(2rem, 5vw, 4rem) clamp(1.2rem, 4vw, 3rem);
   text-align: center;
@@ -1617,11 +1850,11 @@ img, svg, canvas {
 }
 
 /* ==========================================================================
-   13. Footer
+   14. Footer
    ========================================================================== */
 
 .site-footer {
-  background: #030712;
+  background: rgba(4, 8, 18, 0.98);
   border-top: 1px solid var(--border-subtle);
   padding-top: clamp(3.5rem, 6vw, 5rem);
   padding-bottom: 2rem;
@@ -1681,9 +1914,8 @@ img, svg, canvas {
 }
 
 .social-link:hover {
-  background: var(--accent-saffron);
+  background: var(--accent-primary);
   color: #060b18;
-  border-color: var(--accent-saffron);
 }
 
 .f-col-title {
@@ -1708,7 +1940,7 @@ img, svg, canvas {
 }
 
 .footer-links-col a:hover {
-  color: var(--accent-cyan);
+  color: var(--accent-primary-light);
 }
 
 .footer-bottom-bar {
@@ -1725,8 +1957,8 @@ img, svg, canvas {
 
 .indore-badge {
   background: rgba(16, 185, 129, 0.1);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: var(--accent-emerald);
+  border: 1px solid var(--accent-emerald-glow);
   padding: 4px 12px;
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
@@ -1734,7 +1966,7 @@ img, svg, canvas {
 }
 
 /* ==========================================================================
-   14. Modals (Registration & Connect)
+   15. Modals (Registration & Connect)
    ========================================================================== */
 
 .modal-backdrop {
@@ -1782,9 +2014,8 @@ img, svg, canvas {
 .modal-pre {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--accent-saffron);
+  color: var(--accent-primary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .modal-title {
@@ -1859,8 +2090,8 @@ img, svg, canvas {
 }
 
 .form-control:focus {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow-primary);
 }
 
 .phone-input-group {
@@ -1954,7 +2185,7 @@ img, svg, canvas {
   margin-bottom: 24px;
 }
 
-/* Toast Notification Shelf */
+/* Toast Shelf */
 .toast-shelf {
   position: fixed;
   bottom: 24px;
@@ -1986,10 +2217,7 @@ img, svg, canvas {
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* ==========================================================================
-   15. Responsive Breakpoints
-   ========================================================================== */
-
+/* Responsive Media Queries */
 @media (max-width: 992px) {
   .desktop-nav {
     display: none;
@@ -2008,6 +2236,9 @@ img, svg, canvas {
   }
   .nav-actions .btn-secondary {
     display: none;
+  }
+  .theme-title {
+    display: none; /* Icon/dot only on small mobile to save space */
   }
   .search-command-bar {
     flex-direction: column;

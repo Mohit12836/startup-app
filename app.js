@@ -947,6 +947,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Theme Switcher Buttons
+  const themeToggleBtn = document.getElementById("themeToggleBtn");
+  const mobileThemeToggleBtn = document.getElementById("mobileThemeToggleBtn");
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", cycleTheme);
+  }
+  if (mobileThemeToggleBtn) {
+    mobileThemeToggleBtn.addEventListener("click", () => {
+      cycleTheme();
+      if (mobileDrawer) mobileDrawer.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  }
+
+  // Restore saved theme or default
+  const savedTheme = localStorage.getItem("setubandh_theme") || "sapphire";
+  const savedIdx = THEMES.findIndex(t => t.id === savedTheme);
+  if (savedIdx !== -1) currentThemeIndex = savedIdx;
+  applyTheme(savedTheme);
+
+  // Initialize waving ambient cursor orb and 3D tilt physics
+  initAmbientCursorOrb();
+  initCard3DTilt();
+
   // Keyboard Escape to close modals
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
@@ -957,3 +982,83 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// 10. Multi-Theme Switching Engine
+const THEMES = [
+  { id: "sapphire", nameHi: "🌌 नीलम ऑरोरा", nameEn: "🌌 Sapphire Aurora", dotColor: "#38bdf8" },
+  { id: "amber", nameHi: "🔥 रॉयल एम्बर", nameEn: "🔥 Royal Amber", dotColor: "#fbbf24" },
+  { id: "emerald", nameHi: "⚡ नियो एमराल्ड", nameEn: "⚡ Neo Emerald", dotColor: "#10b981" }
+];
+let currentThemeIndex = 0;
+
+function applyTheme(themeId) {
+  document.documentElement.setAttribute("data-theme", themeId);
+  try { localStorage.setItem("setubandh_theme", themeId); } catch(e){}
+  const theme = THEMES.find(t => t.id === themeId) || THEMES[0];
+  const nameEl = document.getElementById("themeName");
+  const dotEl = document.getElementById("themeDot");
+  if (nameEl) {
+    nameEl.textContent = currentLang === "hi" ? theme.nameHi : theme.nameEn;
+  }
+  if (dotEl) {
+    dotEl.style.backgroundColor = theme.dotColor;
+    dotEl.style.boxShadow = `0 0 10px ${theme.dotColor}`;
+  }
+}
+
+function cycleTheme() {
+  currentThemeIndex = (currentThemeIndex + 1) % THEMES.length;
+  applyTheme(THEMES[currentThemeIndex].id);
+  const theme = THEMES[currentThemeIndex];
+  showToast(`🎨 थीम बदली गई: ${currentLang === "hi" ? theme.nameHi : theme.nameEn}`);
+}
+
+// 11. Interactive Ambient Cursor Orb Tracker (लहराती लाइव लाइट)
+function initAmbientCursorOrb() {
+  const orb = document.getElementById("cursorAmbientOrb");
+  if (!orb || window.matchMedia("(pointer: coarse)").matches) return;
+
+  orb.style.display = "block";
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let orbX = mouseX;
+  let orbY = mouseY;
+
+  window.addEventListener("pointermove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function renderOrb() {
+    orbX += (mouseX - orbX) * 0.08;
+    orbY += (mouseY - orbY) * 0.08;
+    orb.style.left = `${orbX}px`;
+    orb.style.top = `${orbY}px`;
+    requestAnimationFrame(renderOrb);
+  }
+  renderOrb();
+}
+
+// 12. 3D Card Tilt & Interactive Physics (Animated Blocks)
+function initCard3DTilt() {
+  if (window.matchMedia("(pointer: coarse)").matches) return;
+
+  document.addEventListener("pointermove", (e) => {
+    const cards = document.querySelectorAll(".startup-card, .step-card, .meetup-ticket-card");
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      if (x >= -20 && x <= rect.width + 20 && y >= -20 && y <= rect.height + 20) {
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+      } else {
+        card.style.transform = "";
+      }
+    });
+  });
+}

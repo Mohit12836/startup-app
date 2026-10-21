@@ -18,11 +18,14 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Ambient Living Aurora Lighting Layers -->
+  <!-- Ambient Living Waving Aurora & Plasma Mesh Layers (लहराती लाइटें) -->
   <div class="aurora-ambient-glow" aria-hidden="true"></div>
+  <div class="aurora-waving-ribbon ribbon-1" aria-hidden="true"></div>
+  <div class="aurora-waving-ribbon ribbon-2" aria-hidden="true"></div>
   <div class="aurora-spotlight-secondary" aria-hidden="true"></div>
   <div class="aurora-spotlight-accent" aria-hidden="true"></div>
   <div class="cyber-grid-mesh" aria-hidden="true"></div>
+  <div class="ambient-interactive-orb" id="cursorAmbientOrb" aria-hidden="true"></div>
 
   <!-- Announcement Bar -->
   <div class="announcement-banner">
@@ -70,8 +73,14 @@
         <a href="#faq" class="nav-item" data-i18n="navFaq">FAQ</a>
       </nav>
 
-      <!-- Actions: Language & CTA -->
+      <!-- Actions: Theme, Language & CTA -->
       <div class="nav-actions">
+        <!-- Dynamic Theme Switcher Pill -->
+        <button id="themeToggleBtn" class="theme-pill-btn" aria-label="Switch Theme" title="थीम बदलें (Cycle Theme)">
+          <span class="theme-dot" id="themeDot"></span>
+          <span class="theme-title" id="themeName">🌌 नीलम ऑरोरा</span>
+        </button>
+
         <!-- Language Switcher Pill -->
         <button id="langToggleBtn" class="lang-pill-btn" aria-label="Switch Language" title="हिंदी / English">
           <span class="lang-code active" id="btnHi">हिं</span>
@@ -80,7 +89,7 @@
         </button>
 
         <button class="btn btn-secondary btn-sm" id="btnInvestorOpen" data-i18n="btnInvestorLogin">इन्वेस्टर लॉगिन</button>
-        <button class="btn btn-primary btn-sm register-trigger-btn" data-i18n="btnRegister">स्टार्टअप रजिस्टर करें</button>
+        <button class="btn btn-primary btn-sm btn-shimmer register-trigger-btn" data-i18n="btnRegister">स्टार्टअप रजिस्टर करें</button>
 
         <!-- Mobile Menu Toggle -->
         <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
@@ -107,6 +116,7 @@
         <a href="#faq" class="mobile-link" data-i18n="navFaq">सामान्य प्रश्न (FAQ)</a>
       </nav>
       <div class="mobile-drawer-actions">
+        <button class="btn btn-secondary btn-block" id="mobileThemeToggleBtn">🎨 थीम बदलें (Switch Theme)</button>
         <button class="btn btn-primary btn-block register-trigger-btn" data-i18n="btnRegister">स्टार्टअप रजिस्टर करें (मुफ़्त)</button>
         <button class="btn btn-secondary btn-block" id="mobileInvestorBtn" data-i18n="btnInvestorLogin">इन्वेस्टर लॉगिन</button>
       </div>
