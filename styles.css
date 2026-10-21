@@ -2340,36 +2340,15 @@ img, svg, canvas {
   }
 }
 
-/* Standard Mobile (< 768px) */
+/* Standard Mobile & Tablet (< 768px) - Full Mobile-First Ergonomics */
 @media (max-width: 768px) {
   .hero-section {
     padding-block: clamp(2rem, 5vw, 3.5rem);
   }
-  .stats-marquee-wrapper {
-    margin-top: 18px;
-    padding: 10px 0;
-    max-width: 100%;
-  }
-  .stats-marquee-track {
-    animation-duration: 22s;
-  }
-  .stats-marquee-group {
-    gap: 18px;
-    padding-inline: 10px;
-  }
-  .ticker-val {
-    font-size: 1.05rem;
-  }
-  .ticker-label {
-    font-size: 0.8rem;
-  }
-}
 
-/* Small Mobile (< 540px) - Buttons & Blocks Full Adaptation */
-@media (max-width: 540px) {
   .header-container {
-    height: 62px;
-    padding-inline: 12px;
+    height: 60px;
+    padding-inline: clamp(10px, 3vw, 16px);
   }
 
   .brand-name {
@@ -2380,7 +2359,7 @@ img, svg, canvas {
     display: none;
   }
 
-  /* Nav Actions - Compact & Non-Breaking */
+  /* Nav Actions - Perfectly Sized on Mobile */
   .nav-actions {
     gap: 6px;
   }
@@ -2390,7 +2369,7 @@ img, svg, canvas {
   }
 
   .theme-title {
-    display: none; /* Show dot only on mobile */
+    display: none; /* Show colorful dot only on mobile */
   }
 
   .theme-pill-btn {
@@ -2404,13 +2383,41 @@ img, svg, canvas {
   }
 
   .nav-actions .register-trigger-btn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    padding: 6px 10px;
+    font-size: 0.78rem;
     min-height: 38px;
     letter-spacing: -0.01em;
   }
 
-  /* Hero Buttons - 100% Mobile Fluid Auto-Fit */
+  /* 1-Line Infinite Marquee Ticker on Mobile */
+  .stats-marquee-wrapper {
+    margin-top: 18px;
+    padding: 10px 0;
+    max-width: 100%;
+  }
+
+  .stats-marquee-track {
+    animation-duration: 22s;
+  }
+
+  .stats-marquee-group {
+    gap: 16px;
+    padding-inline: 10px;
+  }
+
+  .ticker-item {
+    gap: 8px;
+  }
+
+  .ticker-val {
+    font-size: 1rem;
+  }
+
+  .ticker-label {
+    font-size: 0.78rem;
+  }
+
+  /* Hero Buttons - 100% Fluid Auto-Fit Across All Phones */
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
@@ -2455,9 +2462,10 @@ img, svg, canvas {
   .filter-select {
     min-height: 44px;
     font-size: 0.88rem;
+    width: 100%;
   }
 
-  /* Startup Cards & Blocks */
+  /* Startup Cards & Blocks on Mobile */
   .startup-grid {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -2477,7 +2485,7 @@ img, svg, canvas {
     margin-bottom: 12px;
   }
 
-  /* Card Action Buttons Stack Cleanly */
+  /* Card Action Buttons Stack Cleanly & Auto-Fit */
   .card-action-row {
     flex-direction: column;
     width: 100%;
@@ -2490,6 +2498,26 @@ img, svg, canvas {
     min-height: 44px;
     font-size: 0.88rem;
     justify-content: center;
+  }
+
+  /* Emerging / Rising Startup Spotlight on Mobile */
+  .emerging-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .emerging-metrics-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .emerging-btns-row {
+    width: 100%;
+  }
+
+  .emerging-btns-row .btn {
+    width: 100%;
+    min-height: 44px;
   }
 
   /* Indore Banner Card */
@@ -2574,14 +2602,48 @@ img, svg, canvas {
   }
 }
 
-/* Extra Small Phones (< 360px: iPhone SE / 320px) */
-@media (max-width: 360px) {
+/* Small Phones (< 480px) */
+@media (max-width: 480px) {
   .header-container {
-    padding-inline: 8px;
+    height: 56px;
+    padding-inline: 10px;
+  }
+
+  .nav-actions {
+    gap: 4px;
+  }
+
+  .nav-actions .register-trigger-btn {
+    padding: 5px 8px;
+    font-size: 0.74rem;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
   }
 
   .brand-name {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
+  }
+
+  .emerging-metrics-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Extra Small Phones (< 360px: iPhone SE / 320px) */
+@media (max-width: 360px) {
+  .header-container {
+    padding-inline: 6px;
+  }
+
+  .brand-name {
+    font-size: 0.88rem;
+  }
+
+  .nav-actions .register-trigger-btn {
+    display: none; /* Accessible in the mobile hamburger drawer menu */
   }
 
   .stats-marquee-wrapper {
@@ -2589,7 +2651,7 @@ img, svg, canvas {
   }
 
   .stats-marquee-group {
-    gap: 14px;
+    gap: 12px;
   }
 
   .ticket-details-grid {
