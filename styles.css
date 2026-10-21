@@ -901,53 +901,113 @@ img, svg, canvas {
   flex-shrink: 0;
 }
 
-/* Live Numbers Stat Strip */
-.stat-strip-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-  align-items: center;
+/* ==========================================================================
+   Live Continuous Auto-Running Stats Marquee Ticker (PC और मोबाइल में 1 लाइन)
+   ========================================================================== */
+.stats-marquee-wrapper {
   width: 100%;
-  max-width: 1020px;
+  max-width: min(100% - 1rem, 1100px);
+  margin-inline: auto;
+  margin-top: clamp(1.6rem, 3.5vw, 2.8rem);
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: clamp(1.2rem, 3vw, 2rem);
-  box-shadow: var(--glass-shadow);
-  gap: 1.5rem;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  border-radius: var(--radius-pill);
+  padding: 12px 0;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.65), 0 0 25px var(--accent-glow-primary);
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
 }
 
-.stat-strip-container:hover {
+.stats-marquee-wrapper:hover {
   border-color: var(--border-card-hover);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent-glow-primary);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 35px var(--accent-glow-primary);
 }
 
-.stat-box {
+.stats-marquee-track {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  width: max-content;
+  white-space: nowrap;
+  animation: statsMarqueeScroll 28s linear infinite;
+  will-change: transform;
 }
 
-.stat-number, .stat-suffix, .stat-prefix {
-  font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+.stats-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes statsMarqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.stats-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.5vw, 28px);
+  padding-inline: 14px;
+  flex-shrink: 0;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.85rem, 0.4vw + 0.65rem, 0.98rem);
+  white-space: nowrap;
+}
+
+.ticker-badge-live {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  animation: pulseGlow 1.8s infinite;
+}
+
+.ticker-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.ticker-val {
+  font-size: clamp(1.1rem, 1.2vw + 0.5rem, 1.35rem);
   font-weight: 800;
   color: #fff;
-  line-height: 1.1;
+  letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
 }
 
-.stat-suffix, .stat-prefix {
-  color: var(--accent-primary);
+.ticker-val.text-emerald {
+  color: #34d399;
 }
 
-.stat-label {
-  font-size: clamp(0.78rem, 0.4vw + 0.55rem, 0.9rem);
+.ticker-val.text-saffron {
+  color: var(--accent-primary-light);
+}
+
+.ticker-label {
   color: var(--text-muted);
-  margin-top: 4px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: clamp(0.82rem, 0.4vw + 0.58rem, 0.92rem);
+}
+
+.ticker-dot {
+  color: var(--accent-primary);
+  opacity: 0.7;
+  font-size: 1rem;
 }
 
 /* ==========================================================================
@@ -2285,16 +2345,23 @@ img, svg, canvas {
   .hero-section {
     padding-block: clamp(2rem, 5vw, 3.5rem);
   }
-  .stat-strip-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    padding: 16px 12px;
+  .stats-marquee-wrapper {
+    margin-top: 18px;
+    padding: 10px 0;
+    max-width: 100%;
   }
-  .stat-number, .stat-suffix, .stat-prefix {
-    font-size: 1.85rem;
+  .stats-marquee-track {
+    animation-duration: 22s;
   }
-  .stat-label {
-    font-size: 0.76rem;
+  .stats-marquee-group {
+    gap: 18px;
+    padding-inline: 10px;
+  }
+  .ticker-val {
+    font-size: 1.05rem;
+  }
+  .ticker-label {
+    font-size: 0.8rem;
   }
 }
 
@@ -2517,9 +2584,12 @@ img, svg, canvas {
     font-size: 0.95rem;
   }
 
-  .stat-strip-container {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  .stats-marquee-wrapper {
+    padding: 8px 0;
+  }
+
+  .stats-marquee-group {
+    gap: 14px;
   }
 
   .ticket-details-grid {

@@ -181,26 +181,90 @@
           </div>
         </div>
 
-        <!-- Live Numbers Stat Strip (Animated Odometer) -->
-        <div class="stat-strip-container">
-          <div class="stat-box">
-            <span class="stat-number" data-target="128">0</span><span class="stat-suffix">+</span>
-            <span class="stat-label" data-i18n="statVerified">वेरिफ़ाइड स्टार्टअप्स</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-box">
-            <span class="stat-prefix">₹</span><span class="stat-number" data-target="185">0</span><span class="stat-suffix"> Cr+</span>
-            <span class="stat-label" data-i18n="statFunding">कैपिटल व फ़ंडिंग सुविधा</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-box">
-            <span class="stat-number" data-target="950">0</span><span class="stat-suffix">+</span>
-            <span class="stat-label" data-i18n="statFounders">सक्रिय फ़ाउंडर्स व मेंटर्स</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-box">
-            <span class="stat-number" data-target="24">0</span><span class="stat-suffix"></span>
-            <span class="stat-label" data-i18n="statMeetups">सफल ऑफ़लाइन मीटअप</span>
+        <!-- Live Numbers Stat Strip: Auto-Running Marquee Ticker (PC और मोबाइल में 1 लाइन में ऑटो चलते हुए) -->
+        <div class="stats-marquee-wrapper" id="statsMarquee">
+          <div class="stats-marquee-track">
+            <!-- Set 1 -->
+            <div class="stats-marquee-group">
+              <div class="ticker-item">
+                <span class="ticker-badge-live">Live</span>
+                <span class="ticker-icon">🚀</span>
+                <span class="ticker-val"><span class="stat-number" data-target="128">128</span>+</span>
+                <span class="ticker-label" data-i18n="statVerified">वेरिफ़ाइड स्टार्टअप्स</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">💰</span>
+                <span class="ticker-val">₹<span class="stat-number" data-target="185">185</span> Cr+</span>
+                <span class="ticker-label" data-i18n="statFunding">कैपिटल व फ़ंडिंग सुविधा</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">👥</span>
+                <span class="ticker-val"><span class="stat-number" data-target="950">950</span>+</span>
+                <span class="ticker-label" data-i18n="statFounders">सक्रिय फ़ाउंडर्स व मेंटर्स</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">📍</span>
+                <span class="ticker-val"><span class="stat-number" data-target="24">24</span></span>
+                <span class="ticker-label" data-i18n="statMeetups">सफल ऑफ़लाइन मीटअप</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">🏛️</span>
+                <span class="ticker-val text-emerald">DPIIT / MCA</span>
+                <span class="ticker-label">सत्यापित प्रोफ़ाइल</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">✨</span>
+                <span class="ticker-val text-saffron">#1 Hub</span>
+                <span class="ticker-label">मध्य भारत का सबसे बड़ा नेटवर्क</span>
+              </div>
+              <span class="ticker-dot">•</span>
+            </div>
+
+            <!-- Set 2 (Seamless Infinite Loop Duplicate) -->
+            <div class="stats-marquee-group" aria-hidden="true">
+              <div class="ticker-item">
+                <span class="ticker-badge-live">Live</span>
+                <span class="ticker-icon">🚀</span>
+                <span class="ticker-val">128+</span>
+                <span class="ticker-label" data-i18n="statVerified">वेरिफ़ाइड स्टार्टअप्स</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">💰</span>
+                <span class="ticker-val">₹185 Cr+</span>
+                <span class="ticker-label" data-i18n="statFunding">कैपिटल व फ़ंडिंग सुविधा</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">👥</span>
+                <span class="ticker-val">950+</span>
+                <span class="ticker-label" data-i18n="statFounders">सक्रिय फ़ाउंडर्स व मेंटर्स</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">📍</span>
+                <span class="ticker-val">24</span>
+                <span class="ticker-label" data-i18n="statMeetups">सफल ऑफ़लाइन मीटअप</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">🏛️</span>
+                <span class="ticker-val text-emerald">DPIIT / MCA</span>
+                <span class="ticker-label">सत्यापित प्रोफ़ाइल</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">✨</span>
+                <span class="ticker-val text-saffron">#1 Hub</span>
+                <span class="ticker-label">मध्य भारत का सबसे बड़ा नेटवर्क</span>
+              </div>
+              <span class="ticker-dot">•</span>
+            </div>
           </div>
         </div>
 
