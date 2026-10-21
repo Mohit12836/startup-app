@@ -20,10 +20,14 @@ const STARTUPS_DATA = [
     city: "Indore",
     cityHi: "इंदौर",
     sector: "agritech",
-    sectorLabel: "AgriTech (कृषि)",
+    sectorLabel: "AgriTech",
     stage: "early_revenue",
     stageLabel: "Early Revenue",
     funding: "₹1.5 Cr Seed Open",
+    rating: "4.9★",
+    traction: "24k+ Farmers",
+    teamSize: "14 People",
+    foundedYear: "2023",
     taglineHi: "मालवा के सोयाबीन और गेहूं किसानों के लिए AI-संचालित मृदा परीक्षण और मौसम पूर्वानुमान।",
     taglineEn: "AI-driven precision soil analytics and hyper-local weather advisory for Malwa farmers.",
     isVerified: true,
@@ -43,6 +47,10 @@ const STARTUPS_DATA = [
     stage: "growth",
     stageLabel: "Growth / Scale",
     funding: "₹4.2 Cr Raised",
+    rating: "4.8★",
+    traction: "12 Hubs Active",
+    teamSize: "28 People",
+    foundedYear: "2022",
     taglineHi: "इंदौर-भोपाल हाईवे कॉरिडोर पर 100% सोलर पॉवर्ड हाई-स्पीड EV चार्जिंग हब नेटवर्क।",
     taglineEn: "100% solar-powered EV fast-charging hub network across Indore-Bhopal industrial highway.",
     isVerified: true,
@@ -62,6 +70,10 @@ const STARTUPS_DATA = [
     stage: "seed",
     stageLabel: "Seed Stage",
     funding: "₹2.1 Cr Pre-Seed",
+    rating: "4.9★",
+    traction: "50k+ Kiranas",
+    teamSize: "19 People",
+    foundedYear: "2023",
     taglineHi: "टियर-2/3 भारत के 50,000+ किराना स्टोर्स के लिए सरल हिंदी/हिंग्लिश GST बिलिंग व डिजिटल बहीखाता।",
     taglineEn: "Vernacular Hindi & Hinglish GST billing and credit ledger platform for 50,000+ Bharat merchants.",
     isVerified: true,
@@ -81,6 +93,10 @@ const STARTUPS_DATA = [
     stage: "growth",
     stageLabel: "Growth Stage",
     funding: "₹7.5 Cr Series A",
+    rating: "4.9★",
+    traction: "120+ Outlets",
+    teamSize: "140 People",
+    foundedYear: "2021",
     taglineHi: "इंदौर की प्रसिद्ध मसाला चाय संस्कृति को भारत के 40+ शहरों में 120 आउटलेट्स के ज़रिए पहुँचाना।",
     taglineEn: "Bringing Indore's artisanal chai & poha culture across 40+ Indian cities with 120 franchise outlets.",
     isVerified: true,
@@ -100,6 +116,10 @@ const STARTUPS_DATA = [
     stage: "mvp",
     stageLabel: "MVP Ready",
     funding: "Seeking ₹80 Lakh",
+    rating: "4.7★",
+    traction: "8.5k Consults",
+    teamSize: "9 People",
+    foundedYear: "2024",
     taglineHi: "मध्य प्रदेश के ग्रामीण और अर्ध-शहरी इलाकों में 24/7 टेली-परामर्श और शुद्ध जेनेरिक दवा आपूर्ति।",
     taglineEn: "24/7 tele-consultation and verified generic medicine delivery across semi-urban Madhya Pradesh.",
     isVerified: true,
@@ -119,6 +139,10 @@ const STARTUPS_DATA = [
     stage: "early_revenue",
     stageLabel: "Early Revenue",
     funding: "₹3 Cr Seed Open",
+    rating: "4.8★",
+    traction: "450+ Trucks",
+    teamSize: "22 People",
+    foundedYear: "2023",
     taglineHi: "पीथमपुर औद्योगिक क्षेत्र और इंदौर कृषि मंडियों के लिए ऑन-डिमांड कोल्ड-चेन मिनी-ट्रक एग्रीगेटर।",
     taglineEn: "On-demand cold-chain and cargo mini-truck aggregator connecting Pithampur and regional Mandis.",
     isVerified: true,
@@ -138,6 +162,10 @@ const STARTUPS_DATA = [
     stage: "mvp",
     stageLabel: "MVP Stage",
     funding: "Bootstrapped",
+    rating: "4.8★",
+    traction: "3.2k Students",
+    teamSize: "8 People",
+    foundedYear: "2024",
     taglineHi: "हिंदी माध्यम के छात्रों को व्यावहारिक कोडिंग, AI टूल्स और स्थानीय कंपनियों में इंटर्नशिप तैयार करना।",
     taglineEn: "Vernacular Hindi coding bootcamps and AI literacy connecting regional youth to Indore tech jobs.",
     isVerified: true,
@@ -157,6 +185,10 @@ const STARTUPS_DATA = [
     stage: "early_revenue",
     stageLabel: "Early Revenue",
     funding: "₹1.8 Cr Seed",
+    rating: "4.9★",
+    traction: "15k Acres Mapped",
+    teamSize: "16 People",
+    foundedYear: "2023",
     taglineHi: "खेतों में कीटनाशक छिड़काव और फसल स्वास्थ्य निगरानी के लिए DGCA-स्वीकृत कृषि ड्रोन सेवा।",
     taglineEn: "DGCA-approved agricultural drone spraying and crop health mapping service for central India.",
     isVerified: true,
@@ -507,18 +539,21 @@ function renderStartups() {
     const nameDisplay = isHi && startup.nameHi ? `${startup.name} (${startup.nameHi})` : startup.name;
     const cityDisplay = isHi && startup.cityHi ? startup.cityHi : startup.city;
     const taglineDisplay = isHi ? startup.taglineHi : startup.taglineEn;
-    const viewBtnText = isHi ? "प्रोफ़ाइल देखें &rarr;" : "View Profile &rarr;";
-    const connectBtnText = isHi ? "💬 कनेक्ट" : "💬 Connect";
+    const viewBtnText = isHi ? "प्रोफ़ाइल &rarr;" : "View &rarr;";
+    const connectBtnText = isHi ? "💬 चैट" : "💬 Chat";
 
     return `
-      <article class="startup-card" data-id="${startup.id}">
-        <div>
+      <article class="startup-card" data-id="${startup.id}" onclick="viewStartupDetail('${startup.id}')">
+        <div class="card-inner-body">
           <div class="card-top-row">
             <div class="startup-identity">
               <div class="startup-logo-box" aria-hidden="true">${startup.logo}</div>
-              <div>
-                <h3 class="startup-name" onclick="viewStartupDetail('${startup.id}')" role="button" tabindex="0">${nameDisplay}</h3>
-                <span class="startup-city">📍 ${cityDisplay}</span>
+              <div class="startup-name-col">
+                <h3 class="startup-name" title="${startup.name}">${nameDisplay}</h3>
+                <div class="startup-sub-row">
+                  <span class="startup-city">📍 ${cityDisplay}</span>
+                  <span class="startup-rating-badge">${startup.rating || "4.8★"}</span>
+                </div>
               </div>
             </div>
             ${startup.isVerified ? `
@@ -534,13 +569,14 @@ function renderStartups() {
           <p class="startup-tagline">${taglineDisplay}</p>
 
           <div class="startup-meta-strip">
-            <span class="meta-chip">${startup.sectorLabel || startup.sector}</span>
+            <span class="meta-chip sector">${startup.sectorLabel || startup.sector}</span>
             <span class="meta-chip stage">${startup.stageLabel || startup.stage}</span>
             <span class="meta-chip funding">💰 ${startup.funding || "Bootstrapped"}</span>
+            ${startup.traction ? `<span class="meta-chip traction">📈 ${startup.traction}</span>` : ""}
           </div>
         </div>
 
-        <div class="card-action-row">
+        <div class="card-action-row" onclick="event.stopPropagation();">
           <button class="btn btn-primary btn-sm btn-card-view" onclick="viewStartupDetail('${startup.id}')" aria-label="View detailed profile for ${startup.name}">
             ${viewBtnText}
           </button>
