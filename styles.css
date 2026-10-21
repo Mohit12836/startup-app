@@ -14,16 +14,25 @@
 }
 
 /* ==========================================================================
-   THEME 1: Sapphire Aurora (Default Midnight Blue & Electric Saffron)
+   THEME 1: Sapphire Aurora (Multi-Color Spectrum: Indigo, Violet, Saffron, Cyan, Emerald)
    ========================================================================== */
 :root,
 [data-theme="sapphire"] {
   --theme-name: "sapphire";
-  --bg-deep: #060b18;
-  --bg-surface: #0a1126;
-  --bg-card: rgba(14, 23, 48, 0.75);
-  --bg-card-hover: rgba(22, 36, 74, 0.88);
-  --bg-input: rgba(11, 18, 38, 0.88);
+  --bg-deep: #070a1a;
+  --bg-surface: rgba(10, 17, 38, 0.82);
+  --bg-card: rgba(14, 23, 50, 0.72);
+  --bg-card-hover: rgba(24, 38, 78, 0.88);
+  --bg-input: rgba(11, 18, 40, 0.88);
+
+  /* Multi-Color Living Canvas Mesh (5 Luminous Cosmic Color Nodes) */
+  --canvas-multi-grad: 
+    radial-gradient(circle at 12% 16%, rgba(99, 102, 241, 0.45) 0%, transparent 45%),
+    radial-gradient(circle at 88% 12%, rgba(245, 158, 11, 0.38) 0%, transparent 42%),
+    radial-gradient(circle at 50% 48%, rgba(16, 185, 129, 0.28) 0%, transparent 50%),
+    radial-gradient(circle at 18% 78%, rgba(217, 70, 239, 0.32) 0%, transparent 45%),
+    radial-gradient(circle at 84% 84%, rgba(56, 189, 248, 0.42) 0%, transparent 48%),
+    linear-gradient(135deg, #090c24 0%, #150f38 25%, #081d2e 50%, #1d0b2e 75%, #071a24 100%);
 
   /* Contrast Dominance (WCAG AAA) */
   --text-main: #f8fafc;
@@ -43,28 +52,36 @@
   --accent-emerald-glow: rgba(16, 185, 129, 0.25);
 
   /* Borders & Shadows */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-card: rgba(99, 102, 241, 0.22);
-  --border-card-hover: rgba(245, 158, 11, 0.5);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-card: rgba(99, 102, 241, 0.26);
+  --border-card-hover: rgba(245, 158, 11, 0.55);
   --glass-shadow: 0 16px 40px -10px rgba(2, 6, 23, 0.7);
 
   /* Waving Aurora Gradients */
-  --aurora-wave-1: radial-gradient(ellipse 65% 55% at 50% 25%, rgba(99, 102, 241, 0.32) 0%, rgba(245, 158, 11, 0.22) 50%, rgba(56, 189, 248, 0.12) 75%, transparent 90%);
-  --ribbon-grad-1: linear-gradient(120deg, rgba(56, 189, 248, 0.25), rgba(99, 102, 241, 0.35), rgba(245, 158, 11, 0.28));
-  --ribbon-grad-2: linear-gradient(240deg, rgba(245, 158, 11, 0.22), rgba(16, 185, 129, 0.18), rgba(99, 102, 241, 0.26));
+  --aurora-wave-1: radial-gradient(ellipse 65% 55% at 50% 25%, rgba(99, 102, 241, 0.36) 0%, rgba(245, 158, 11, 0.26) 50%, rgba(56, 189, 248, 0.16) 75%, transparent 90%);
+  --ribbon-grad-1: linear-gradient(120deg, rgba(56, 189, 248, 0.32), rgba(99, 102, 241, 0.42), rgba(245, 158, 11, 0.34));
+  --ribbon-grad-2: linear-gradient(240deg, rgba(245, 158, 11, 0.3), rgba(16, 185, 129, 0.26), rgba(217, 70, 239, 0.32));
 }
 
 /* ==========================================================================
-   THEME 2: Royal Obsidian Amber (Warm Molten Charcoal & Golden Saffron)
-   Strictly Non-White, Deep Velvety Obsidian Canvas with Molten Fire
+   THEME 2: Royal Obsidian Amber (Multi-Color Spectrum: Molten Gold, Amethyst, Crimson, Saffron, Plum)
    ========================================================================== */
 [data-theme="amber"] {
   --theme-name: "amber";
-  --bg-deep: #0b0713;
-  --bg-surface: #140d22;
-  --bg-card: rgba(26, 16, 44, 0.78);
-  --bg-card-hover: rgba(38, 24, 64, 0.9);
-  --bg-input: rgba(20, 12, 34, 0.88);
+  --bg-deep: #0e0717;
+  --bg-surface: rgba(20, 13, 34, 0.82);
+  --bg-card: rgba(28, 17, 48, 0.75);
+  --bg-card-hover: rgba(42, 26, 72, 0.9);
+  --bg-input: rgba(22, 14, 38, 0.88);
+
+  /* Multi-Color Living Warm Velvet Mesh (Saffron, Amethyst, Fire Coral, Gold, Plum) */
+  --canvas-multi-grad: 
+    radial-gradient(circle at 14% 15%, rgba(245, 158, 11, 0.46) 0%, transparent 45%),
+    radial-gradient(circle at 86% 16%, rgba(192, 132, 252, 0.42) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.32) 0%, transparent 46%),
+    radial-gradient(circle at 16% 82%, rgba(251, 191, 36, 0.4) 0%, transparent 46%),
+    radial-gradient(circle at 84% 84%, rgba(217, 70, 239, 0.38) 0%, transparent 45%),
+    linear-gradient(135deg, #1b0928 0%, #2a1105 25%, #1e062c 50%, #2f0919 75%, #160528 100%);
 
   --text-main: #fdfaf6;
   --text-muted: #a89bb8;
@@ -81,27 +98,35 @@
   --accent-emerald: #34d399;
   --accent-emerald-glow: rgba(52, 211, 153, 0.28);
 
-  --border-subtle: rgba(251, 191, 36, 0.1);
-  --border-card: rgba(245, 158, 11, 0.28);
-  --border-card-hover: rgba(251, 191, 36, 0.6);
+  --border-subtle: rgba(251, 191, 36, 0.14);
+  --border-card: rgba(245, 158, 11, 0.32);
+  --border-card-hover: rgba(251, 191, 36, 0.65);
   --glass-shadow: 0 16px 40px -10px rgba(11, 7, 19, 0.85);
 
-  --aurora-wave-1: radial-gradient(ellipse 65% 55% at 50% 25%, rgba(245, 158, 11, 0.35) 0%, rgba(192, 132, 252, 0.24) 48%, rgba(249, 115, 22, 0.16) 72%, transparent 90%);
-  --ribbon-grad-1: linear-gradient(120deg, rgba(245, 158, 11, 0.3), rgba(192, 132, 252, 0.32), rgba(249, 115, 22, 0.35));
-  --ribbon-grad-2: linear-gradient(240deg, rgba(251, 191, 36, 0.28), rgba(217, 70, 239, 0.22), rgba(245, 158, 11, 0.25));
+  --aurora-wave-1: radial-gradient(ellipse 65% 55% at 50% 25%, rgba(245, 158, 11, 0.4) 0%, rgba(192, 132, 252, 0.3) 48%, rgba(249, 115, 22, 0.22) 72%, transparent 90%);
+  --ribbon-grad-1: linear-gradient(120deg, rgba(245, 158, 11, 0.36), rgba(192, 132, 252, 0.38), rgba(249, 115, 22, 0.4));
+  --ribbon-grad-2: linear-gradient(240deg, rgba(251, 191, 36, 0.35), rgba(217, 70, 239, 0.3), rgba(245, 158, 11, 0.32));
 }
 
 /* ==========================================================================
-   THEME 3: Neo Matrix Emerald (Cyber Pine & Bioluminescent Mint)
-   High-Tech Dark Futuristic Cyber Atmosphere, Zero Harsh White
+   THEME 3: Neo Matrix Emerald (Multi-Color Spectrum: Cyber Pine, Mint, Aqua, Laser Violet, Teal)
    ========================================================================== */
 [data-theme="emerald"] {
   --theme-name: "emerald";
-  --bg-deep: #040e0c;
-  --bg-surface: #071916;
-  --bg-card: rgba(10, 32, 28, 0.78);
-  --bg-card-hover: rgba(14, 46, 40, 0.9);
-  --bg-input: rgba(8, 24, 21, 0.88);
+  --bg-deep: #031411;
+  --bg-surface: rgba(7, 25, 22, 0.82);
+  --bg-card: rgba(10, 36, 32, 0.75);
+  --bg-card-hover: rgba(16, 52, 45, 0.9);
+  --bg-input: rgba(8, 28, 24, 0.88);
+
+  /* Multi-Color Living Cyber Mesh (Mint, Cyan, Neon Lime, Violet, Sea Teal) */
+  --canvas-multi-grad: 
+    radial-gradient(circle at 14% 15%, rgba(16, 185, 129, 0.48) 0%, transparent 45%),
+    radial-gradient(circle at 86% 15%, rgba(6, 182, 212, 0.44) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(132, 204, 22, 0.28) 0%, transparent 46%),
+    radial-gradient(circle at 16% 82%, rgba(147, 51, 234, 0.35) 0%, transparent 46%),
+    radial-gradient(circle at 84% 84%, rgba(20, 184, 166, 0.42) 0%, transparent 46%),
+    linear-gradient(135deg, #041f1a 0%, #032832 25%, #180c2e 50%, #062d1d 75%, #052128 100%);
 
   --text-main: #f0fdf4;
   --text-muted: #86efac;
@@ -118,14 +143,14 @@
   --accent-emerald: #10b981;
   --accent-emerald-glow: rgba(16, 185, 129, 0.3);
 
-  --border-subtle: rgba(16, 185, 129, 0.12);
-  --border-card: rgba(16, 185, 129, 0.28);
-  --border-card-hover: rgba(52, 211, 153, 0.65);
+  --border-subtle: rgba(16, 185, 129, 0.16);
+  --border-card: rgba(16, 185, 129, 0.32);
+  --border-card-hover: rgba(52, 211, 153, 0.7);
   --glass-shadow: 0 16px 40px -10px rgba(4, 14, 12, 0.85);
 
-  --aurora-wave-1: radial-gradient(ellipse 65% 55% at 50% 25%, rgba(16, 185, 129, 0.32) 0%, rgba(6, 182, 212, 0.25) 50%, rgba(34, 197, 94, 0.12) 75%, transparent 90%);
-  --ribbon-grad-1: linear-gradient(120deg, rgba(16, 185, 129, 0.28), rgba(6, 182, 212, 0.32), rgba(52, 211, 153, 0.26));
-  --ribbon-grad-2: linear-gradient(240deg, rgba(6, 182, 212, 0.25), rgba(34, 197, 94, 0.22), rgba(20, 184, 166, 0.3));
+  --aurora-wave-1: radial-gradient(ellipse 65% 55% at 50% 25%, rgba(16, 185, 129, 0.38) 0%, rgba(6, 182, 212, 0.3) 50%, rgba(34, 197, 94, 0.18) 75%, transparent 90%);
+  --ribbon-grad-1: linear-gradient(120deg, rgba(16, 185, 129, 0.34), rgba(6, 182, 212, 0.38), rgba(52, 211, 153, 0.32));
+  --ribbon-grad-2: linear-gradient(240deg, rgba(6, 182, 212, 0.32), rgba(147, 51, 234, 0.28), rgba(20, 184, 166, 0.36));
 }
 
 /* Base Typographic Tokens */
@@ -140,17 +165,33 @@
   --transition-spring: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* Multi-Color Dynamic Living Canvas */
+@keyframes multiColorMeshShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 60%;
+  }
+}
+
 html, body {
   max-width: 100%;
   overflow-x: clip;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--bg-deep);
+  background: var(--canvas-multi-grad);
+  background-attachment: fixed;
+  background-size: 140% 140%;
+  animation: multiColorMeshShift 26s ease-in-out infinite alternate;
   color: var(--text-main);
   font-family: var(--font-sans);
   line-height: 1.6;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background 0.5s ease, color 0.4s ease;
 }
 
 [data-lang="hi"] body {
@@ -916,7 +957,7 @@ img, svg, canvas {
 
 .directory-section {
   padding-block: clamp(3.5rem, 7vw, 6rem);
-  background: linear-gradient(180deg, transparent 0%, rgba(10, 17, 38, 0.5) 30%, transparent 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.12) 20%, rgba(16, 185, 129, 0.08) 50%, rgba(245, 158, 11, 0.1) 80%, transparent 100%);
   position: relative;
   z-index: 10;
 }
@@ -1854,7 +1895,9 @@ img, svg, canvas {
    ========================================================================== */
 
 .site-footer {
-  background: rgba(4, 8, 18, 0.98);
+  background: linear-gradient(180deg, rgba(8, 12, 28, 0.75) 0%, rgba(17, 10, 36, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--border-subtle);
   padding-top: clamp(3.5rem, 6vw, 5rem);
   padding-bottom: 2rem;
