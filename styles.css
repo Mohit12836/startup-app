@@ -2614,3 +2614,398 @@ img, svg, canvas {
     transform: scale(0.97) !important;
   }
 }
+
+/* ==========================================================================
+   24. Emerging / Rising Startup Showcase ("उभरता हुआ स्टार्टअप")
+   ========================================================================== */
+.emerging-startup-spotlight-wrapper {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  width: 100%;
+}
+
+.emerging-card-glow-border {
+  position: relative;
+  border-radius: clamp(14px, 2.5vw, 24px);
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.7), rgba(56, 189, 248, 0.6), rgba(16, 185, 129, 0.7), rgba(139, 92, 246, 0.6));
+  background-size: 300% 300%;
+  animation: borderRotate 8s linear infinite;
+  box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.7), 0 0 35px -5px var(--accent-glow-primary);
+}
+
+.emerging-card-inner {
+  background: var(--bg-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: clamp(12px, 2.4vw, 22px);
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.emerging-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.badge-rising-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #34d399;
+  font-size: clamp(0.78rem, 1.2vw, 0.9rem);
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+}
+
+.pulse-emerald-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+.yoy-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+  font-weight: 600;
+  color: var(--accent-secondary);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.emerging-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.2rem, 3vw, 2rem);
+}
+
+@media (min-width: 900px) {
+  .emerging-content-grid {
+    grid-template-columns: 1.8fr 1fr;
+    align-items: center;
+  }
+}
+
+.emerging-logo-title-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 18px);
+  margin-bottom: 12px;
+}
+
+.emerging-logo-box {
+  width: clamp(52px, 7vw, 68px);
+  height: clamp(52px, 7vw, 68px);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.15));
+  border: 1.5px solid rgba(16, 185, 129, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+.emerging-title-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.emerging-name {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.emerging-sub {
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.emerging-description {
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--text-sub);
+  margin-bottom: clamp(1rem, 2vw, 1.4rem);
+}
+
+.emerging-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 110px), 1fr));
+  gap: clamp(8px, 1.5vw, 14px);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  padding: clamp(10px, 1.8vw, 16px);
+  border-radius: 14px;
+}
+
+.em-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.em-val {
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 800;
+  color: var(--text-main);
+  font-feature-settings: "tnum";
+}
+
+.em-lbl {
+  font-size: clamp(0.7rem, 0.9vw, 0.78rem);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.emerging-founder-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.founder-avatar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.founder-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.founder-role {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.emerging-btns-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.founder-wa-btn {
+  background: rgba(37, 211, 102, 0.12) !important;
+  border: 1px solid rgba(37, 211, 102, 0.35) !important;
+  color: #4ade80 !important;
+}
+
+.founder-wa-btn:hover {
+  background: rgba(37, 211, 102, 0.25) !important;
+  border-color: #25D366 !important;
+  color: #fff !important;
+}
+
+/* ==========================================================================
+   25. Designer Credit with Direct WhatsApp Connect (Mohit P Jain)
+   ========================================================================== */
+.designer-signature-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  font-size: clamp(0.78rem, 1.1vw, 0.88rem);
+}
+
+.designer-tag-label {
+  color: var(--text-muted);
+}
+
+.designer-wa-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #f8fafc;
+  text-decoration: none;
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.45);
+  padding: 4px 12px;
+  border-radius: 999px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.designer-wa-link:hover {
+  background: #25D366;
+  color: #030a08;
+  border-color: #25D366;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.designer-avatar-sm {
+  font-size: 1rem;
+}
+
+.designer-name {
+  font-weight: 800;
+  color: inherit;
+}
+
+.designer-phone {
+  font-size: 0.82rem;
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+
+.designer-wa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.designer-wa-link:hover .designer-wa-badge {
+  background: rgba(0, 0, 0, 0.2);
+  color: #030a08;
+}
+
+/* Floating Direct WhatsApp Bubble */
+.floating-designer-bubble {
+  position: fixed;
+  bottom: clamp(16px, 3vw, 28px);
+  right: clamp(16px, 3vw, 28px);
+  z-index: 999;
+  animation: floatBounce 4s ease-in-out infinite;
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.bubble-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(10, 18, 38, 0.92);
+  border: 1.5px solid rgba(37, 211, 102, 0.55);
+  padding: 8px 14px 8px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.6), 0 0 20px rgba(37, 211, 102, 0.3);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bubble-link:hover {
+  transform: scale(1.05);
+  border-color: #25D366;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.75), 0 0 28px rgba(37, 211, 102, 0.5);
+  background: rgba(14, 25, 48, 0.98);
+}
+
+.bubble-avatar {
+  font-size: 1.25rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.bubble-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.bubble-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.1;
+}
+
+.bubble-status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #4ade80;
+  line-height: 1.2;
+}
+
+.bubble-pulse {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 0 10px #25D366;
+  animation: pulseDot 2s infinite;
+}
+
+.bubble-wa-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+}
+
+/* On very small screens, keep bubble compact */
+@media (max-width: 480px) {
+  .bubble-text {
+    display: none;
+  }
+  .bubble-link {
+    padding: 10px;
+  }
+  .designer-signature-box {
+    border-radius: 14px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+}
+
