@@ -36,12 +36,12 @@
     </div>
   </div>
 
-  <!-- Main Navigation -->
-  <header class="site-header">
+  <!-- Main Navigation (Amazon-Inspired: Brand + Fast Search + Clear Action Group) -->
+  <header class="site-header" role="banner">
     <div class="container header-container">
       <a href="#" class="brand-logo" aria-label="Setubandh Home">
         <div class="logo-mark">
-          <svg viewBox="0 0 32 32" fill="none" class="bridge-icon">
+          <svg viewBox="0 0 32 32" fill="none" class="bridge-icon" aria-hidden="true">
             <path d="M4 22C10 14 22 14 28 22" stroke="url(#logoGrad)" stroke-width="3" stroke-linecap="round"/>
             <path d="M10 18V26M16 16V26M22 18V26" stroke="url(#logoGrad2)" stroke-width="2.5" stroke-linecap="round"/>
             <path d="M2 26H30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
@@ -64,6 +64,19 @@
         </div>
       </a>
 
+      <!-- Amazon-Style Prominent Quick Search (Desktop Header) -->
+      <div class="header-search-wrap" role="search">
+        <form class="header-search-form" id="headerSearchForm" onsubmit="event.preventDefault(); handleHeaderSearch();">
+          <label for="headerSearchInput" class="sr-only">स्टार्टअप या सेक्टर खोजें</label>
+          <input type="text" id="headerSearchInput" class="header-search-input" placeholder="स्टार्टअप, सेक्टर, या शहर खोजें (उदा. AgriTech, AI)..." autocomplete="off">
+          <button type="submit" class="header-search-btn" aria-label="Search Startups">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
       <!-- Desktop Nav -->
       <nav class="desktop-nav" aria-label="Primary Navigation">
         <a href="#directory" class="nav-item" data-i18n="navDirectory">स्टार्टअप डायरेक्टरी</a>
@@ -73,7 +86,7 @@
         <a href="#faq" class="nav-item" data-i18n="navFaq">FAQ</a>
       </nav>
 
-      <!-- Actions: Theme, Language & CTA -->
+      <!-- Actions: Theme, Language, Login & Registration -->
       <div class="nav-actions">
         <!-- Dynamic Theme Switcher Pill -->
         <button id="themeToggleBtn" class="theme-pill-btn" aria-label="Switch Theme" title="थीम बदलें (Cycle Theme)">
@@ -88,8 +101,9 @@
           <span class="lang-code" id="btnEn">EN</span>
         </button>
 
+        <!-- Auth & Registration Triggers -->
         <button class="btn btn-secondary btn-sm" id="btnInvestorOpen" data-i18n="btnInvestorLogin">इन्वेस्टर लॉगिन</button>
-        <button class="btn btn-primary btn-sm btn-shimmer register-trigger-btn" data-i18n="btnRegister">स्टार्टअप रजिस्टर करें</button>
+        <button class="btn btn-primary btn-sm btn-shimmer register-trigger-btn" data-i18n="btnRegister">स्टार्टअप जोड़ें</button>
 
         <!-- Mobile Menu Toggle -->
         <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
@@ -101,24 +115,39 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-drawer" id="mobileDrawer">
+  <!-- Mobile Drawer Menu (Amazon-Grade Sliding Drawer) -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
     <div class="mobile-drawer-content">
       <div class="mobile-drawer-header">
-        <span class="brand-name">Setubandh</span>
+        <div class="brand-text">
+          <span class="brand-name">Setubandh <span class="hindi-sub">सेतुबंध</span></span>
+          <span class="brand-tag">इंदौर से भारत तक</span>
+        </div>
         <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close Menu">&times;</button>
       </div>
+
+      <!-- Quick User Account Status Strip -->
+      <div class="drawer-user-status" id="drawerUserStatus">
+        <div class="status-avatar">👤</div>
+        <div class="status-info">
+          <strong id="drawerUserName">अतिथि यूज़र (Guest)</strong>
+          <span id="drawerUserRole">लॉगिन करें या रजिस्टर करें</span>
+        </div>
+      </div>
+
       <nav class="mobile-nav-links">
-        <a href="#directory" class="mobile-link" data-i18n="navDirectory">स्टार्टअप डायरेक्टरी</a>
-        <a href="#indore-hub" class="mobile-link" data-i18n="navIndore">इंदौर हब 🌟</a>
-        <a href="#how-it-works" class="mobile-link" data-i18n="navHow">कैसे काम करता है</a>
-        <a href="#investors" class="mobile-link" data-i18n="navInvestors">इन्वेस्टर्स व मेंटर्स</a>
-        <a href="#faq" class="mobile-link" data-i18n="navFaq">सामान्य प्रश्न (FAQ)</a>
+        <a href="#directory" class="mobile-link" data-i18n="navDirectory">🔍 स्टार्टअप डायरेक्टरी खोजें</a>
+        <a href="#rising-star" class="mobile-link">🌟 इस माह का उभरता स्टार्टअप</a>
+        <a href="#indore-hub" class="mobile-link" data-i18n="navIndore">🏛️ इंदौर हब व इन्क्यूबेशन</a>
+        <a href="#how-it-works" class="mobile-link" data-i18n="navHow">⚡ कैसे काम करता है (3 स्टेप्स)</a>
+        <a href="#investors" class="mobile-link" data-i18n="navInvestors">💼 इन्वेस्टर्स व मेंटर्स नेटवर्क</a>
+        <a href="#faq" class="mobile-link" data-i18n="navFaq">❓ सामान्य प्रश्न (FAQ)</a>
       </nav>
+
       <div class="mobile-drawer-actions">
-        <button class="btn btn-secondary btn-block" id="mobileThemeToggleBtn">🎨 थीम बदलें (Switch Theme)</button>
-        <button class="btn btn-primary btn-block register-trigger-btn" data-i18n="btnRegister">स्टार्टअप रजिस्टर करें (मुफ़्त)</button>
-        <button class="btn btn-secondary btn-block" id="mobileInvestorBtn" data-i18n="btnInvestorLogin">इन्वेस्टर लॉगिन</button>
+        <button class="btn btn-primary btn-block register-trigger-btn" data-i18n="btnRegister">🚀 अपना स्टार्टअप जोड़ें (मुफ़्त 5 min)</button>
+        <button class="btn btn-secondary btn-block" id="mobileInvestorBtn" data-i18n="btnInvestorLogin">🔑 इन्वेस्टर / फाउंडर लॉगिन</button>
+        <button class="btn btn-outline btn-block" id="mobileThemeToggleBtn">🎨 थीम बदलें (Switch Theme)</button>
       </div>
     </div>
   </div>
@@ -1036,6 +1065,109 @@
       </form>
     </div>
   </div>
+
+  <!-- Modal: Startup Full Profile Details (Amazon Product / Profile Card Inspection) -->
+  <div class="modal-backdrop" id="startupProfileModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Startup Detailed Profile">
+    <div class="modal-dialog modal-dialog-lg">
+      <div class="modal-header">
+        <div>
+          <span class="modal-pre" id="profModalPre">स्टार्टअप प्रोफ़ाइल • सत्यापित विवरण</span>
+          <h3 class="modal-title" id="profModalTitle">स्टार्टअप विवरण</h3>
+        </div>
+        <button class="modal-close-btn" id="closeProfileModal" aria-label="Close Profile Modal">&times;</button>
+      </div>
+
+      <div class="profile-modal-body" id="profileModalBody">
+        <!-- Content injected dynamically via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Investor & Founder Auth (Phone OTP & Email Simulation / Local Session) -->
+  <div class="modal-backdrop" id="authModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Sign In or Register">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="modal-pre" id="authModalPre">सुरक्षित लॉगिन • DPDP Act 2023</span>
+          <h3 class="modal-title" id="authModalTitle">इन्वेस्टर व फाउंडर लॉगिन</h3>
+        </div>
+        <button class="modal-close-btn" id="closeAuthModal" aria-label="Close Auth Modal">&times;</button>
+      </div>
+
+      <!-- Auth Step 1: Phone / Email Input -->
+      <form id="authPhoneForm" class="modal-form">
+        <div id="authStep1">
+          <p class="auth-subtext">अपना 10-अंकों का मोबाइल नंबर दर्ज करें। आपको एक 4-अंकों का सत्यापन OTP भेजा जाएगा।</p>
+          <div class="form-group">
+            <label for="authPhoneInput" class="form-label">मोबाइल नंबर *</label>
+            <div class="phone-input-group">
+              <span class="country-prefix">+91</span>
+              <input type="tel" id="authPhoneInput" class="form-control" placeholder="98260XXXXX" pattern="[0-9]{10}" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="authRoleSelect" class="form-label">आपकी प्रोफ़ाइल भूमिका *</label>
+            <select id="authRoleSelect" class="form-control">
+              <option value="investor">💼 एंजेल इन्वेस्टर / VC (Angel / Investor)</option>
+              <option value="founder">🚀 स्टार्टअप फ़ाउंडर (Founder)</option>
+              <option value="mentor">🧭 मेंटर / इन्क्यूबेटर (Mentor)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnRequestOtp">OTP भेजें (Get OTP) &rarr;</button>
+        </div>
+
+        <!-- Auth Step 2: OTP Verification -->
+        <div id="authStep2" class="hidden">
+          <p class="auth-subtext">नंबर <strong id="authTargetPhoneDisplay">+91 ...</strong> पर 4-अंकों का OTP भेजा गया है।</p>
+          <div class="form-group">
+            <label for="otpCodeInput" class="form-label">4-अंकों का OTP दर्ज करें *</label>
+            <input type="text" id="otpCodeInput" class="form-control text-center otp-input" placeholder="••••" maxlength="6" required>
+            <span class="form-hint" id="otpDemoHint">डेमो के लिए OTP: <strong>1234</strong> या कोई भी 4 अंक दर्ज करें।</span>
+          </div>
+          <button type="button" class="btn btn-primary btn-block btn-lg" id="btnVerifyOtp">सत्यापित करें और लॉगिन हों &rarr;</button>
+          <button type="button" class="btn btn-link btn-block" id="btnResendOtp">OTP दोबारा भेजें</button>
+        </div>
+
+        <!-- Auth Step 3: Logged In State / Dashboard Preview -->
+        <div id="authStep3" class="hidden text-center">
+          <div class="success-icon-badge">✅</div>
+          <h4 id="authSuccessWelcome">स्वागत है!</h4>
+          <p id="authSuccessMeta">आपकी इन्वेस्टर/फाउंडर प्रोफ़ाइल सक्रिय है।</p>
+          <div class="auth-user-card" id="authUserCard">
+            <!-- Dynamic info -->
+          </div>
+          <div class="auth-actions-group">
+            <button type="button" class="btn btn-secondary btn-block" id="btnLogoutSession">लॉगआउट करें</button>
+            <button type="button" class="btn btn-primary btn-block" id="closeAuthSuccessBtn">डायरेक्टरी एक्सप्लोर करें</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Amazon-Style Sticky Mobile Bottom Navigation (Always Accessible Touch Zone) -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Quick Actions">
+    <a href="#directory" class="bottom-nav-item active" id="bNavDirectory">
+      <span class="b-icon">🔍</span>
+      <span class="b-label" data-i18n="navDirectory">खोजें</span>
+    </a>
+    <a href="#rising-star" class="bottom-nav-item" id="bNavRising">
+      <span class="b-icon">🌟</span>
+      <span class="b-label">उभरता स्टार</span>
+    </a>
+    <button type="button" class="bottom-nav-item register-trigger-btn" id="bNavRegister">
+      <span class="b-icon-highlight">🚀</span>
+      <span class="b-label">रजिस्टर</span>
+    </button>
+    <a href="#indore-hub" class="bottom-nav-item" id="bNavHub">
+      <span class="b-icon">🏛️</span>
+      <span class="b-label">इंदौर हब</span>
+    </a>
+    <button type="button" class="bottom-nav-item" id="bNavAccount">
+      <span class="b-icon">👤</span>
+      <span class="b-label" id="bNavAccountLabel">लॉगिन</span>
+    </button>
+  </nav>
 
   <!-- Toast Notification Container -->
   <div class="toast-shelf" id="toastShelf" aria-live="polite"></div>

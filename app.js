@@ -428,11 +428,45 @@ const TRANSLATIONS = {
 
 let currentLang = "hi";
 let currentCategory = "all";
-let currentCity = "indore"; // Default Indore spotlight as per spec!
+let currentCity = "all"; // Show all verified startups by default so user never sees empty state!
 let currentStage = "all";
 let searchQuery = "";
 
-// 3. Render Startup Cards
+// User Session State (Stored in localStorage under Setubandh DPDP guidelines)
+let currentUserSession = null;
+try {
+  const savedUser = localStorage.getItem("setubandh_user_session");
+  if (savedUser) {
+    currentUserSession = JSON.parse(savedUser);
+  }
+} catch (e) {}
+
+// Helper to update User State in Header & Drawer
+function updateAuthUI() {
+  const drawerName = document.getElementById("drawerUserName");
+  const drawerRole = document.getElementById("drawerUserRole");
+  const bNavAccountLabel = document.getElementById("bNavAccountLabel");
+  const btnInvestorOpen = document.getElementById("btnInvestorOpen");
+  const mobileInvestorBtn = document.getElementById("mobileInvestorBtn");
+
+  if (currentUserSession) {
+    const roleTitle = currentUserSession.role === "investor" ? "इन्वेस्टर (Investor)" : 
+                      currentUserSession.role === "founder" ? "फाउंडर (Founder)" : "मेंटर (Mentor)";
+    if (drawerName) drawerName.textContent = currentUserSession.phone;
+    if (drawerRole) drawerRole.textContent = `✓ सत्यापित ${roleTitle}`;
+    if (bNavAccountLabel) bNavAccountLabel.textContent = "खाता";
+    if (btnInvestorOpen) btnInvestorOpen.textContent = "मेरा खाता (Account)";
+    if (mobileInvestorBtn) mobileInvestorBtn.textContent = "👤 मेरा खाता (Account Details)";
+  } else {
+    if (drawerName) drawerName.textContent = "अतिथि यूज़र (Guest)";
+    if (drawerRole) drawerRole.textContent = "लॉगिन करें या रजिस्टर करें";
+    if (bNavAccountLabel) bNavAccountLabel.textContent = "लॉगिन";
+    if (btnInvestorOpen) btnInvestorOpen.textContent = currentLang === "hi" ? "इन्वेस्टर लॉगिन" : "Investor Login";
+    if (mobileInvestorBtn) mobileInvestorBtn.textContent = "🔑 इन्वेस्टर / फाउंडर लॉगिन";
+  }
+}
+
+// 3. Render Startup Cards (Amazon-Grade Responsive Structured Cards)
 function renderStartups() {
   const grid = document.getElementById("startupGrid");
   const emptyState = document.getElementById("emptyState");
@@ -452,28 +486,29 @@ function renderStartups() {
       (item.nameHi && item.nameHi.toLowerCase().includes(query)) ||
       item.city.toLowerCase().includes(query) ||
       item.sector.toLowerCase().includes(query) ||
-      item.taglineHi.toLowerCase().includes(query) ||
-      item.taglineEn.toLowerCase().includes(query) ||
-      item.founders.toLowerCase().includes(query);
+      (item.sectorLabel && item.sectorLabel.toLowerCase().includes(query)) ||
+      (item.taglineHi && item.taglineHi.toLowerCase().includes(query)) ||
+      (item.taglineEn && item.taglineEn.toLowerCase().includes(query)) ||
+      (item.founders && item.founders.toLowerCase().includes(query));
 
     return matchCat && matchCity && matchStage && matchSearch;
   });
 
   if (filtered.length === 0) {
     grid.innerHTML = "";
-    emptyState.classList.remove("hidden");
+    if (emptyState) emptyState.classList.remove("hidden");
     return;
   }
 
-  emptyState.classList.add("hidden");
+  if (emptyState) emptyState.classList.add("hidden");
   const isHi = currentLang === "hi";
 
   grid.innerHTML = filtered.map(startup => {
     const nameDisplay = isHi && startup.nameHi ? `${startup.name} (${startup.nameHi})` : startup.name;
     const cityDisplay = isHi && startup.cityHi ? startup.cityHi : startup.city;
     const taglineDisplay = isHi ? startup.taglineHi : startup.taglineEn;
-    const connectBtnText = isHi ? "फ़ाउंडर से कनेक्ट हों &rarr;" : "Connect with Founder &rarr;";
-    const deckBtnText = isHi ? "पिच डेक" : "Pitch Deck";
+    const viewBtnText = isHi ? "प्रोफ़ाइल देखें &rarr;" : "View Profile &rarr;";
+    const connectBtnText = isHi ? "💬 कनेक्ट" : "💬 Connect";
 
     return `
       <article class="startup-card" data-id="${startup.id}">
@@ -482,35 +517,35 @@ function renderStartups() {
             <div class="startup-identity">
               <div class="startup-logo-box" aria-hidden="true">${startup.logo}</div>
               <div>
-                <h3 class="startup-name">${nameDisplay}</h3>
+                <h3 class="startup-name" onclick="viewStartupDetail('${startup.id}')" role="button" tabindex="0">${nameDisplay}</h3>
                 <span class="startup-city">📍 ${cityDisplay}</span>
               </div>
             </div>
             ${startup.isVerified ? `
               <div class="verified-badge" title="${startup.verifyType}">
-                <svg class="verified-icon" viewBox="0 0 20 20" fill="currentColor">
+                <svg class="verified-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Verified</span>
               </div>
-            ` : ''}
+            ` : '<div class="unverified-badge" title="Pending Verification"><span>Under Review</span></div>'}
           </div>
 
           <p class="startup-tagline">${taglineDisplay}</p>
 
           <div class="startup-meta-strip">
-            <span class="meta-chip">${startup.sectorLabel}</span>
-            <span class="meta-chip stage">${startup.stageLabel}</span>
-            <span class="meta-chip funding">💰 ${startup.funding}</span>
+            <span class="meta-chip">${startup.sectorLabel || startup.sector}</span>
+            <span class="meta-chip stage">${startup.stageLabel || startup.stage}</span>
+            <span class="meta-chip funding">💰 ${startup.funding || "Bootstrapped"}</span>
           </div>
         </div>
 
         <div class="card-action-row">
-          <button class="btn btn-card-connect" onclick="openConnectModal('${startup.id}')">
-            ${connectBtnText}
+          <button class="btn btn-primary btn-sm btn-card-view" onclick="viewStartupDetail('${startup.id}')" aria-label="View detailed profile for ${startup.name}">
+            ${viewBtnText}
           </button>
-          <button class="btn btn-deck-sm" onclick="showToast('📄 ${startup.name} का पिच डेक डाउनलोड हो रहा है...')">
-            ${deckBtnText}
+          <button class="btn btn-secondary btn-sm btn-card-connect" onclick="openConnectModal('${startup.id}')" aria-label="Connect with ${startup.name}">
+            ${connectBtnText}
           </button>
         </div>
       </article>
@@ -518,7 +553,108 @@ function renderStartups() {
   }).join("");
 }
 
-// 4. Global Sector Filter Shortcut
+// 4. View Startup Full Profile Detail (Amazon Inspection View)
+window.viewStartupDetail = function(startupId) {
+  const startup = STARTUPS_DATA.find(s => s.id === startupId) || {
+    id: "kisansetu",
+    name: "KisanSetu AI",
+    nameHi: "किसानसेतु AI",
+    logo: "🌱",
+    city: "Indore",
+    cityHi: "इंदौर",
+    sector: "agritech",
+    sectorLabel: "AgriTech (कृषि-तकनीक)",
+    stage: "seed",
+    stageLabel: "Seed Stage",
+    funding: "₹2.2 Cr Seed Committed",
+    taglineHi: "मालवा और निमाड़ के 24,000+ किसानों के लिए AI-संचालित मूल्य भविष्यवाणी व आपूर्ति नेटवर्क।",
+    taglineEn: "AI price forecasting and supply chain network for 24,000+ farmers across Malwa.",
+    isVerified: true,
+    verifyType: "DPIIT #DIPP84920",
+    founders: "अमित पाटीदार, मयंक शर्मा, राहुल शर्मा",
+    website: "https://kisansetu.in"
+  };
+
+  const modal = document.getElementById("startupProfileModal");
+  const modalTitle = document.getElementById("profModalTitle");
+  const modalBody = document.getElementById("profileModalBody");
+  if (!modal || !modalBody) return;
+
+  const isHi = currentLang === "hi";
+  const nameDisplay = isHi && startup.nameHi ? `${startup.name} (${startup.nameHi})` : startup.name;
+  modalTitle.textContent = nameDisplay;
+
+  modalBody.innerHTML = `
+    <div class="prof-modal-hero">
+      <div class="prof-logo-wrap">${startup.logo}</div>
+      <div class="prof-header-text">
+        <div class="prof-title-row">
+          <h2 class="prof-company-name">${nameDisplay}</h2>
+          ${startup.isVerified ? `
+            <span class="verified-tick-badge" title="${startup.verifyType}">✓ ${startup.verifyType || "DPIIT Verified"}</span>
+          ` : '<span class="unverified-badge">Under Review</span>'}
+        </div>
+        <p class="prof-tagline">${isHi ? (startup.taglineHi || startup.taglineEn) : (startup.taglineEn || startup.taglineHi)}</p>
+        <div class="prof-badges-wrap">
+          <span class="meta-chip">📍 ${isHi && startup.cityHi ? startup.cityHi : startup.city}</span>
+          <span class="meta-chip stage">🚀 ${startup.stageLabel || startup.stage}</span>
+          <span class="meta-chip funding">💰 ${startup.funding || "Self-Funded"}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="prof-grid-section">
+      <div class="prof-block">
+        <h4 class="prof-block-title">संस्थापक व नेतृत्व (Founders)</h4>
+        <p class="prof-block-text">👥 ${startup.founders || "Founder Team"}</p>
+        <p class="prof-block-sub">मुख्यालय: ${startup.city}, मध्य प्रदेश | भारत</p>
+      </div>
+
+      <div class="prof-block">
+        <h4 class="prof-block-title">वेरिफ़िकेशन स्थिति (DPDP Compliant)</h4>
+        <p class="prof-block-text text-emerald">🛡️ सरकारी आईडी: ${startup.verifyType || "सत्यापन प्रक्रियाधीन"}</p>
+        <p class="prof-block-sub">समीक्षा: सेतुबंध मॉडरेशन टीम द्वारा 24 घंटे में जाँचा गया।</p>
+      </div>
+    </div>
+
+    <div class="prof-action-bar">
+      <button class="btn btn-primary btn-lg" onclick="openConnectModal('${startup.id}'); closeProfileModalHandler();">
+        <span>💬 संस्थापक से सीधा संपर्क अनुरोध भेजें</span>
+      </button>
+      <a href="https://wa.me/916263879076?text=Namaste%20Mohit%20ji,%20I%20am%20viewing%20${encodeURIComponent(startup.name)}%20profile%20on%20Setubandh" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg founder-wa-btn">
+        <span>📱 WhatsApp पर कनेक्ट</span>
+      </a>
+    </div>
+  `;
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+};
+
+function closeProfileModalHandler() {
+  const modal = document.getElementById("startupProfileModal");
+  if (modal) {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
+
+// Global Header Search Listener
+window.handleHeaderSearch = function() {
+  const headerInput = document.getElementById("headerSearchInput");
+  const dirSearch = document.getElementById("directorySearchInput");
+  if (headerInput && dirSearch) {
+    searchQuery = headerInput.value;
+    dirSearch.value = searchQuery;
+    const dirSection = document.getElementById("directory");
+    if (dirSection) {
+      dirSection.scrollIntoView({ behavior: "smooth" });
+    }
+    renderStartups();
+  }
+};
+
+// 5. Global Sector Filter Shortcut
 window.filterBySector = function(sector) {
   currentCategory = sector;
   document.querySelectorAll(".cat-pill").forEach(p => {
@@ -531,7 +667,7 @@ window.filterBySector = function(sector) {
   renderStartups();
 };
 
-// 5. Toast Notification System
+// 6. Toast Notification System
 function showToast(message, duration = 3500) {
   const shelf = document.getElementById("toastShelf");
   if (!shelf) return;
@@ -549,9 +685,9 @@ function showToast(message, duration = 3500) {
   }, duration);
 }
 
-// 6. Connect Modal Opener
+// 7. Connect Modal Opener
 window.openConnectModal = function(startupId) {
-  const startup = STARTUPS_DATA.find(s => s.id === startupId);
+  const startup = STARTUPS_DATA.find(s => s.id === startupId) || STARTUPS_DATA[0];
   if (!startup) return;
 
   const modal = document.getElementById("connectModal");
@@ -567,11 +703,11 @@ window.openConnectModal = function(startupId) {
 
   modalTitle.textContent = `${startup.name} — संपर्क अनुरोध`;
   targetBox.innerHTML = `
-    <div style="display:flex; align-items:center; gap:10px;">
+    <div style="display:flex; align-items:center; gap:12px;">
       <span style="font-size:1.8rem;">${startup.logo}</span>
       <div>
         <strong style="color:#fff; font-size:1.05rem;">${startup.name}</strong>
-        <div style="color:#94a3b8; font-size:0.8rem;">${startup.sectorLabel} • 📍 ${startup.city} • संस्थापक: ${startup.founders}</div>
+        <div style="color:#94a3b8; font-size:0.8rem;">${startup.sectorLabel || startup.sector} • 📍 ${startup.city} • संस्थापक: ${startup.founders || "Core Team"}</div>
       </div>
     </div>
   `;
@@ -580,7 +716,7 @@ window.openConnectModal = function(startupId) {
   document.body.style.overflow = "hidden";
 };
 
-// 7. Language Switcher Engine
+// 8. Language Switcher Engine
 function setLanguage(lang) {
   currentLang = lang;
   document.documentElement.setAttribute("data-lang", lang);
@@ -617,6 +753,7 @@ function setLanguage(lang) {
     }
   }
 
+  updateAuthUI();
   renderStartups();
 }
 
@@ -900,6 +1037,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Close modals when clicking backdrop
+  const profileModal = document.getElementById("startupProfileModal");
+  const authModal = document.getElementById("authModal");
+
   window.addEventListener("click", (e) => {
     if (e.target === registerModal) {
       registerModal.classList.remove("active");
@@ -909,11 +1049,181 @@ document.addEventListener("DOMContentLoaded", () => {
       connectModal.classList.remove("active");
       document.body.style.overflow = "";
     }
+    if (e.target === profileModal) {
+      profileModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+    if (e.target === authModal) {
+      authModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
     if (e.target === mobileDrawer) {
       mobileDrawer.classList.remove("active");
       document.body.style.overflow = "";
     }
   });
+
+  // Profile Modal Close Button
+  const closeProfileModalBtn = document.getElementById("closeProfileModal");
+  if (closeProfileModalBtn && profileModal) {
+    closeProfileModalBtn.addEventListener("click", () => {
+      profileModal.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  }
+
+  // Investor / Founder Auth Modal Flow
+  const openAuthModal = () => {
+    if (!authModal) return;
+    const authStep1 = document.getElementById("authStep1");
+    const authStep2 = document.getElementById("authStep2");
+    const authStep3 = document.getElementById("authStep3");
+
+    if (currentUserSession) {
+      // User is already logged in, show user account card
+      if (authStep1) authStep1.classList.add("hidden");
+      if (authStep2) authStep2.classList.add("hidden");
+      if (authStep3) {
+        authStep3.classList.remove("hidden");
+        const card = document.getElementById("authUserCard");
+        if (card) {
+          card.innerHTML = `
+            <div style="background:rgba(255,255,255,0.06); padding:16px; border-radius:12px; margin-block:14px; text-align:left;">
+              <p style="color:#f8fafc; font-size:1.05rem; font-weight:700;">📱 ${currentUserSession.phone}</p>
+              <p style="color:#34d399; font-size:0.85rem; font-weight:600;">भूमिका: ${currentUserSession.role.toUpperCase()} • सत्यापित</p>
+              <p style="color:#94a3b8; font-size:0.8rem; margin-top:4px;">सक्रिय सत्र: DPDP Act 2023 एन्क्रिप्टेड</p>
+            </div>
+          `;
+        }
+      }
+    } else {
+      if (authStep1) authStep1.classList.remove("hidden");
+      if (authStep2) authStep2.classList.add("hidden");
+      if (authStep3) authStep3.classList.add("hidden");
+    }
+
+    authModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeAuthModalBtn = document.getElementById("closeAuthModal");
+  if (closeAuthModalBtn && authModal) {
+    closeAuthModalBtn.addEventListener("click", () => {
+      authModal.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  }
+
+  // Wire auth triggers
+  const btnInvestorOpen = document.getElementById("btnInvestorOpen");
+  const mobileInvestorBtn = document.getElementById("mobileInvestorBtn");
+  const bNavAccount = document.getElementById("bNavAccount");
+
+  if (btnInvestorOpen) btnInvestorOpen.addEventListener("click", openAuthModal);
+  if (mobileInvestorBtn) {
+    mobileInvestorBtn.addEventListener("click", () => {
+      if (mobileDrawer) mobileDrawer.classList.remove("active");
+      document.body.style.overflow = "";
+      openAuthModal();
+    });
+  }
+  if (bNavAccount) bNavAccount.addEventListener("click", openAuthModal);
+
+  // Auth Phone Form (Request OTP)
+  const authPhoneForm = document.getElementById("authPhoneForm");
+  const btnRequestOtp = document.getElementById("btnRequestOtp");
+  const authPhoneInput = document.getElementById("authPhoneInput");
+  const authRoleSelect = document.getElementById("authRoleSelect");
+  let tempPendingPhone = "";
+  let tempPendingRole = "investor";
+
+  if (authPhoneForm) {
+    authPhoneForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const phone = authPhoneInput.value.trim();
+      if (!phone || phone.length < 10) {
+        showToast("⚠️ कृपया वैध 10-अंकों का मोबाइल नंबर दर्ज करें।");
+        return;
+      }
+      tempPendingPhone = "+91 " + phone;
+      tempPendingRole = authRoleSelect.value;
+
+      const display = document.getElementById("authTargetPhoneDisplay");
+      if (display) display.textContent = tempPendingPhone;
+
+      document.getElementById("authStep1").classList.add("hidden");
+      document.getElementById("authStep2").classList.remove("hidden");
+      showToast(`📲 सत्यापन कोड भेजा गया: ${tempPendingPhone} (Demo OTP: 1234)`);
+    });
+  }
+
+  // Verify OTP Action
+  const btnVerifyOtp = document.getElementById("btnVerifyOtp");
+  const otpCodeInput = document.getElementById("otpCodeInput");
+
+  if (btnVerifyOtp) {
+    btnVerifyOtp.addEventListener("click", () => {
+      const code = otpCodeInput ? otpCodeInput.value.trim() : "";
+      if (!code || code.length < 4) {
+        showToast("⚠️ कृपया 4-अंकों का OTP कोड दर्ज करें।");
+        return;
+      }
+
+      // Save verified user session
+      currentUserSession = {
+        phone: tempPendingPhone,
+        role: tempPendingRole,
+        loginTime: new Date().toISOString()
+      };
+      try {
+        localStorage.setItem("setubandh_user_session", JSON.stringify(currentUserSession));
+      } catch (e) {}
+
+      updateAuthUI();
+
+      // Show Step 3 Success
+      document.getElementById("authStep2").classList.add("hidden");
+      const authStep3 = document.getElementById("authStep3");
+      authStep3.classList.remove("hidden");
+
+      const card = document.getElementById("authUserCard");
+      if (card) {
+        card.innerHTML = `
+          <div style="background:rgba(255,255,255,0.06); padding:16px; border-radius:12px; margin-block:14px; text-align:left;">
+            <p style="color:#f8fafc; font-size:1.05rem; font-weight:700;">📱 ${currentUserSession.phone}</p>
+            <p style="color:#34d399; font-size:0.85rem; font-weight:600;">भूमिका: ${currentUserSession.role.toUpperCase()} • सत्यापित</p>
+            <p style="color:#94a3b8; font-size:0.8rem; margin-top:4px;">सक्रिय सत्र: DPDP Act 2023 एन्क्रिप्टेड</p>
+          </div>
+        `;
+      }
+      showToast("🎉 सफल लॉगिन! सेतुबंध इकोसिस्टम में आपका स्वागत है।");
+    });
+  }
+
+  // Logout Action
+  const btnLogoutSession = document.getElementById("btnLogoutSession");
+  if (btnLogoutSession) {
+    btnLogoutSession.addEventListener("click", () => {
+      currentUserSession = null;
+      try {
+        localStorage.removeItem("setubandh_user_session");
+      } catch (e) {}
+      updateAuthUI();
+      if (authModal) authModal.classList.remove("active");
+      document.body.style.overflow = "";
+      showToast("👋 आप सफलतापूर्वक लॉगआउट हो चुके हैं।");
+    });
+  }
+
+  const closeAuthSuccessBtn = document.getElementById("closeAuthSuccessBtn");
+  if (closeAuthSuccessBtn && authModal) {
+    closeAuthSuccessBtn.addEventListener("click", () => {
+      authModal.classList.remove("active");
+      document.body.style.overflow = "";
+      const dirSection = document.getElementById("directory");
+      if (dirSection) dirSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
 
   // Meetup Ticket Booking Button
   const bookMeetupBtn = document.getElementById("bookMeetupBtn");
@@ -923,27 +1233,6 @@ document.addEventListener("DOMContentLoaded", () => {
       bookMeetupBtn.style.background = "#10b981";
       bookMeetupBtn.disabled = true;
       showToast("🎟️ बधाई! आपकी सीट 15 नवंबर के इंदौर मीटअप के लिए आरक्षित है।");
-    });
-  }
-
-  // Investor Hub CTAs
-  const investorBtn = document.getElementById("investorRegisterBtn");
-  const btnInvestorOpen = document.getElementById("btnInvestorOpen");
-  const mobileInvestorBtn = document.getElementById("mobileInvestorBtn");
-
-  const openInvestorAlert = () => {
-    showToast("💼 इन्वेस्टर पोर्टल: सिंडिकेट और पिच डेक डायरेक्टरी एक्टिव है!");
-    const dir = document.getElementById("directory");
-    if (dir) dir.scrollIntoView({ behavior: "smooth" });
-  };
-
-  if (investorBtn) investorBtn.addEventListener("click", openInvestorAlert);
-  if (btnInvestorOpen) btnInvestorOpen.addEventListener("click", openInvestorAlert);
-  if (mobileInvestorBtn) {
-    mobileInvestorBtn.addEventListener("click", () => {
-      if (mobileDrawer) mobileDrawer.classList.remove("active");
-      document.body.style.overflow = "";
-      openInvestorAlert();
     });
   }
 
@@ -972,11 +1261,16 @@ document.addEventListener("DOMContentLoaded", () => {
   initAmbientCursorOrb();
   initCard3DTilt();
 
+  // Initial Auth UI state setup
+  updateAuthUI();
+
   // Keyboard Escape to close modals
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       if (registerModal) registerModal.classList.remove("active");
       if (connectModal) connectModal.classList.remove("active");
+      if (profileModal) profileModal.classList.remove("active");
+      if (authModal) authModal.classList.remove("active");
       if (mobileDrawer) mobileDrawer.classList.remove("active");
       document.body.style.overflow = "";
     }

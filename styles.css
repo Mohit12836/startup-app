@@ -3056,7 +3056,7 @@ img, svg, canvas {
   margin-left: 2px;
 }
 
-/* On very small screens, keep bubble compact */
+/* On very small screens, keep bubble compact & elevate above bottom nav */
 @media (max-width: 480px) {
   .bubble-text {
     display: none;
@@ -3069,5 +3069,343 @@ img, svg, canvas {
     padding: 10px 12px;
     text-align: center;
   }
+  .floating-designer-bubble {
+    bottom: 74px; /* Float above the mobile bottom nav */
+  }
 }
+
+/* ==========================================================================
+   26. Amazon-Inspired Header Quick Search
+   ========================================================================== */
+.header-search-wrap {
+  flex: 1 1 240px;
+  max-width: 380px;
+  margin-inline: 12px;
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .header-search-wrap {
+    display: block;
+  }
+}
+
+.header-search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.header-search-input {
+  width: 100%;
+  min-height: 40px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-pill);
+  padding: 8px 44px 8px 16px;
+  font-size: 0.86rem;
+  color: #fff;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.header-search-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px var(--accent-glow-primary);
+  background: rgba(10, 18, 42, 0.96);
+}
+
+.header-search-btn {
+  position: absolute;
+  right: 4px;
+  width: 32px;
+  height: 32px;
+  background: var(--accent-primary-gradient);
+  border: none;
+  border-radius: 50%;
+  color: #060b18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.header-search-btn:hover {
+  transform: scale(1.08);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   27. Amazon-Style Sticky Mobile Bottom Navigation (320px-768px)
+   ========================================================================== */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(6, 11, 24, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-subtle);
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 900;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
+  }
+
+  /* Add clearance padding to footer so bottom navigation never overlaps content */
+  .site-footer {
+    padding-bottom: 90px !important;
+  }
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 600;
+  gap: 2px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  flex: 1;
+  min-height: 52px;
+}
+
+.bottom-nav-item .b-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.bottom-nav-item .b-icon-highlight {
+  font-size: 1.25rem;
+  color: var(--accent-primary);
+  filter: drop-shadow(0 0 6px var(--accent-glow-primary));
+}
+
+.bottom-nav-item:hover,
+.bottom-nav-item.active {
+  color: var(--accent-primary-light);
+}
+
+.bottom-nav-item:active {
+  transform: scale(0.94);
+}
+
+/* ==========================================================================
+   28. Startup Profile Inspection Modal (Amazon Detailed Card View)
+   ========================================================================== */
+.modal-dialog-lg {
+  max-width: 760px;
+}
+
+.prof-modal-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(14px, 3vw, 22px);
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 20px;
+}
+
+.prof-logo-wrap {
+  width: clamp(60px, 8vw, 84px);
+  height: clamp(60px, 8vw, 84px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.prof-header-text {
+  flex: 1;
+}
+
+.prof-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.prof-company-name {
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.prof-tagline {
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--text-sub);
+  margin-bottom: 12px;
+}
+
+.prof-badges-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.prof-grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.prof-block {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.prof-block-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.prof-block-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.prof-block-sub {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.prof-action-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.prof-action-bar .btn {
+  flex: 1 1 200px;
+  min-height: 48px;
+}
+
+/* ==========================================================================
+   29. Investor & Founder Auth Modal Styles
+   ========================================================================== */
+.auth-subtext {
+  font-size: 0.92rem;
+  color: var(--text-sub);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.otp-input {
+  font-size: 1.6rem !important;
+  letter-spacing: 12px;
+  font-weight: 800;
+  color: var(--accent-primary-light) !important;
+}
+
+.auth-actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn-link {
+  background: transparent;
+  border: none;
+  color: var(--accent-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 8px;
+}
+
+.btn-link:hover {
+  color: #fff;
+}
+
+.drawer-user-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+}
+
+.status-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.status-info strong {
+  font-size: 0.92rem;
+  color: #fff;
+}
+
+.status-info span {
+  font-size: 0.76rem;
+  color: var(--accent-emerald);
+}
+
+.btn-card-view {
+  flex: 1.2;
+}
+
 
