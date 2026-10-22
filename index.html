@@ -18,14 +18,29 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Ambient Living Waving Aurora & Plasma Mesh Layers (लहराती लाइटें) -->
-  <div class="aurora-ambient-glow" aria-hidden="true"></div>
-  <div class="aurora-waving-ribbon ribbon-1" aria-hidden="true"></div>
-  <div class="aurora-waving-ribbon ribbon-2" aria-hidden="true"></div>
-  <div class="aurora-spotlight-secondary" aria-hidden="true"></div>
-  <div class="aurora-spotlight-accent" aria-hidden="true"></div>
-  <div class="cyber-grid-mesh" aria-hidden="true"></div>
-  <div class="ambient-interactive-orb" id="cursorAmbientOrb" aria-hidden="true"></div>
+  <!-- ========================================================
+       MASTER LIVING BACKGROUND:
+       - Upar Niche Deep Dark (Top & Bottom Dark Vignette)
+       - Bich Me Laharati Hui Glowing White Light Ribbon & Horizon
+       ======================================================== -->
+  <div class="ambient-waving-light-system" aria-hidden="true">
+    <!-- Top & Bottom Deep Dark Vignettes (ऊपर नीचे डार्क) -->
+    <div class="dark-vignette-top"></div>
+    <div class="dark-vignette-bottom"></div>
+
+    <!-- Center Waving White Light Horizons & Aurora Beams (बीच में लहराती हुई सफ़ेद लाइट) -->
+    <div class="center-white-light-core wave-core-1"></div>
+    <div class="center-white-light-core wave-core-2"></div>
+    <div class="center-white-light-beam"></div>
+    <div class="center-white-ribbon-stream"></div>
+
+    <!-- Multi-Color Ambient Accents (Subtle Underglow) -->
+    <div class="aurora-ambient-glow"></div>
+    <div class="aurora-waving-ribbon ribbon-1"></div>
+    <div class="aurora-waving-ribbon ribbon-2"></div>
+    <div class="cyber-grid-mesh"></div>
+    <div class="ambient-interactive-orb" id="cursorAmbientOrb"></div>
+  </div>
 
   <!-- Announcement Bar -->
   <div class="announcement-banner">
@@ -136,7 +151,23 @@
       </div>
 
       <nav class="mobile-nav-links">
-        <a href="#directory" class="mobile-link" data-i18n="navDirectory">🔍 स्टार्टअप डायरेक्टरी खोजें</a>
+        <div class="drawer-accordion-wrap">
+          <div class="drawer-accordion-header">
+            <a href="#directory" class="mobile-link" data-i18n="navDirectory">🔍 स्टार्टअप डायरेक्टरी</a>
+            <button type="button" class="drawer-chevron-btn" id="drawerCategoryToggle" aria-expanded="false" aria-label="Toggle categories list">
+              <svg class="chevron-icon" viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+          <div class="drawer-submenu hidden" id="drawerCategorySubmenu">
+            <a href="#directory" class="drawer-sublink" data-cat="agritech">🌾 AgriTech (कृषि-तकनीक)</a>
+            <a href="#directory" class="drawer-sublink" data-cat="cleantech">⚡ CleanTech & EV</a>
+            <a href="#directory" class="drawer-sublink" data-cat="fintech">💳 FinTech & SaaS</a>
+            <a href="#directory" class="drawer-sublink" data-cat="d2c">🛍️ D2C & Consumer</a>
+            <a href="#directory" class="drawer-sublink" data-cat="healthtech">🩺 HealthTech</a>
+          </div>
+        </div>
         <a href="#rising-star" class="mobile-link">🌟 इस माह का उभरता स्टार्टअप</a>
         <a href="#indore-hub" class="mobile-link" data-i18n="navIndore">🏛️ इंदौर हब व इन्क्यूबेशन</a>
         <a href="#how-it-works" class="mobile-link" data-i18n="navHow">⚡ कैसे काम करता है (3 स्टेप्स)</a>
@@ -145,9 +176,11 @@
       </nav>
 
       <div class="mobile-drawer-actions">
-        <button class="btn btn-primary btn-block register-trigger-btn" data-i18n="btnRegister">🚀 अपना स्टार्टअप जोड़ें (मुफ़्त 5 min)</button>
-        <button class="btn btn-secondary btn-block" id="mobileInvestorBtn" data-i18n="btnInvestorLogin">🔑 इन्वेस्टर / फाउंडर लॉगिन</button>
-        <button class="btn btn-outline btn-block" id="mobileThemeToggleBtn">🎨 थीम बदलें (Switch Theme)</button>
+        <button class="btn btn-primary btn-block register-trigger-btn primary-drawer-cta" data-i18n="btnRegister">🚀 अपना स्टार्टअप जोड़ें (मुफ़्त 5 min)</button>
+        <div class="drawer-secondary-actions-grid">
+          <button class="btn btn-secondary btn-block" id="mobileInvestorBtn" data-i18n="btnInvestorLogin">🔑 लॉगिन</button>
+          <button class="btn btn-outline btn-block" id="mobileThemeToggleBtn">🎨 थीम बदलें</button>
+        </div>
       </div>
     </div>
   </div>
@@ -853,13 +886,35 @@
 
       </div>
 
+      <!-- Prominent Website Development Banner (Mohit P Jain Direct WhatsApp Connect) -->
+      <div class="developer-contact-banner">
+        <div class="dev-banner-left">
+          <span class="dev-banner-badge">🚀 Custom Web & App Development</span>
+          <h3 class="dev-banner-title">अपनी वेबसाइट बनवाने के लिए संपर्क करें</h3>
+          <p class="dev-banner-sub">Modern, High-Speed, Mobile Responsive & AI-Powered Websites & SaaS Platforms</p>
+        </div>
+        <div class="dev-banner-right">
+          <a href="https://wa.me/916263879076?text=Namaste%20Mohit%20ji,%20Mujhe%20apni%20website%20banvani%20hai,%20kripya%20details%20share%20karein." target="_blank" rel="noopener noreferrer" class="dev-wa-cta-btn" title="Click to chat directly with Mohit P Jain on WhatsApp">
+            <span class="dev-wa-icon-glow">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.088.072.189.014.305-.058.115-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 1.742 1.487 2.666.273.243.504.398.679.497.234.133.372.115.51-.044.138-.159.593-.693.751-.931.159-.238.318-.198.535-.117.217.081 1.373.647 1.61.765.237.118.395.176.452.274.058.099.058.572-.086.977z"/>
+              </svg>
+            </span>
+            <div class="dev-btn-text">
+              <span class="dev-btn-top">Click WhatsApp: <strong>6263879076</strong></span>
+              <strong class="dev-btn-main">Mohit P Jain &rarr;</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+
       <div class="footer-bottom-bar">
         <p>&copy; 2026 Setubandh (सेतुबंध). सभी अधिकार सुरक्षित। गर्व से इंदौर, मध्य प्रदेश में निर्मित।</p>
         
         <!-- Designer Credit with Direct WhatsApp Connect -->
         <div class="designer-signature-box">
-          <span class="designer-tag-label">Designed & Engineered by</span>
-          <a href="https://wa.me/916263879076?text=Namaste%20Mohit%20ji,%20I%20visited%20Setubandh%20and%20want%20to%20connect!" target="_blank" rel="noopener noreferrer" class="designer-wa-link" title="Click to chat directly on WhatsApp">
+          <span class="designer-tag-label">अपनी वेबसाइट बनवाने के लिए संपर्क करें:</span>
+          <a href="https://wa.me/916263879076?text=Namaste%20Mohit%20ji,%20Mujhe%20apni%20website%20banvani%20hai,%20kripya%20details%20share%20karein." target="_blank" rel="noopener noreferrer" class="designer-wa-link" title="Click to chat with Mohit P Jain on WhatsApp">
             <span class="designer-avatar-sm">👨‍💻</span>
             <strong class="designer-name">Mohit P Jain</strong>
             <span class="designer-phone">📱 6263879076</span>
@@ -867,7 +922,7 @@
               <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.088.072.189.014.305-.058.115-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 1.742 1.487 2.666.273.243.504.398.679.497.234.133.372.115.51-.044.138-.159.593-.693.751-.931.159-.238.318-.198.535-.117.217.081 1.373.647 1.61.765.237.118.395.176.452.274.058.099.058.572-.086.977z"/>
               </svg>
-              Direct WhatsApp
+              Click WhatsApp
             </span>
           </a>
         </div>
@@ -879,12 +934,12 @@
 
   <!-- Floating Direct WhatsApp Contact Pill -->
   <aside class="floating-designer-bubble" aria-label="Direct Connect with Designer Mohit P Jain">
-    <a href="https://wa.me/916263879076?text=Namaste%20Mohit%20ji,%20I%20am%20on%20Setubandh%20and%20want%20to%20discuss%20a%20project!" target="_blank" rel="noopener noreferrer" class="bubble-link" title="Chat with Mohit P Jain on WhatsApp (6263879076)">
+    <a href="https://wa.me/916263879076?text=Namaste%20Mohit%20ji,%20Mujhe%20apni%20website%20banvani%20hai,%20kripya%20details%20share%20karein." target="_blank" rel="noopener noreferrer" class="bubble-link" title="अपनी वेबसाइट बनवाने के लिए Mohit P Jain से WhatsApp पर संपर्क करें (6263879076)">
       <span class="bubble-pulse"></span>
       <span class="bubble-avatar">👨‍💻</span>
       <div class="bubble-text">
-        <span class="bubble-title">Mohit P Jain</span>
-        <span class="bubble-status">● WhatsApp 6263879076</span>
+        <span class="bubble-title">वेबसाइट बनवाएं • Mohit P Jain</span>
+        <span class="bubble-status">● WhatsApp: 6263879076 ↗</span>
       </div>
       <span class="bubble-wa-icon">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="#25D366">

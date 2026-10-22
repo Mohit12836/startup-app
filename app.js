@@ -939,6 +939,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Rule 29: Mobile Drawer Category Accordion Toggle
+  const drawerCategoryToggle = document.getElementById("drawerCategoryToggle");
+  const drawerCategorySubmenu = document.getElementById("drawerCategorySubmenu");
+  if (drawerCategoryToggle && drawerCategorySubmenu) {
+    drawerCategoryToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isExpanded = drawerCategoryToggle.getAttribute("aria-expanded") === "true";
+      drawerCategoryToggle.setAttribute("aria-expanded", String(!isExpanded));
+      drawerCategoryToggle.classList.toggle("open");
+      drawerCategorySubmenu.classList.toggle("hidden");
+    });
+  }
+
+  // Handle drawer category sublinks
+  document.querySelectorAll(".drawer-sublink").forEach(sublink => {
+    sublink.addEventListener("click", (e) => {
+      const cat = sublink.dataset.cat;
+      if (cat) filterBySector(cat);
+      if (mobileDrawer) mobileDrawer.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
+
   // FAQ Accordion
   const accordion = document.getElementById("faqAccordion");
   if (accordion) {

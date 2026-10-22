@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="hi" data-lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Setubandh (सेतुबंध) — इंदौर से भारत तक, स्टार्टअप्स का सेतु</title>
+  <meta name="description" content="इंदौर और भारत के स्टार्टअप्स के लिए रजिस्ट्रेशन, वेरिफ़ाइड डायरेक्टरी, नेटवर्किंग और इन्वेस्टर कनेक्ट प्लेटफ़ॉर्म।">
+  <meta name="theme-color" content="#070b19">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌉</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Rozha+One&family=Yantramanav:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ========================================================
+       MASTER LIVING BACKGROUND:
+       - Upar Niche Deep Dark (Top & Bottom Dark Vignette)
+       - Bich Me Laharati Hui Glowing White Light Ribbon & Horizon
+       ======================================================== -->
+  <div class="ambient-waving-light-system" aria-hidden="true">
+    <!-- Top & Bottom Deep Dark Vignettes (ऊपर नीचे डार्क) -->
+    <div class="dark-vignette-top"></div>
+    <div class="dark-vignette-bottom"></div>
+
+    <!-- Center Waving White Light Horizons & Aurora Beams (बीच में लहराती हुई सफ़ेद लाइट) -->
+    <div class="center-white-light-core wave-core-1"></div>
+    <div class="center-white-light-core wave-core-2"></div>
+    <div class="center-white-light-beam"></div>
+    <div class="center-white-ribbon-stream"></div>
+
+    <!-- Multi-Color Ambient Accents (Subtle Underglow) -->
+    <div class="aurora-ambient-glow"></div>
+    <div class="aurora-waving-ribbon ribbon-1"></div>
+    <div class="aurora-waving-ribbon ribbon-2"></div>
+    <div class="cyber-grid-mesh"></div>
+    <div class="ambient-interactive-orb" id="cursorAmbientOrb"></div>
+  </div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-banner">
+    <div class="container banner-inner">
+      <span class="pulse-indicator"></span>
+      <span data-i18n="announcementText">🔥 <strong>अगला इंदौर फ़ाउंडर्स मीटअप:</strong> 15 नवंबर | सुपर कॉरिडोर इन्क्यूबेशन सेंटर | 100+ सीटें आरक्षित</span>
+      <a href="#meetup" class="banner-link" data-i18n="announcementLink">पास बुक करें &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Main Navigation (Amazon-Inspired: Brand + Fast Search + Clear Action Group) -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      <a href="#" class="brand-logo" aria-label="Setubandh Home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 32 32" fill="none" class="bridge-icon" aria-hidden="true">
+            <path d="M4 22C10 14 22 14 28 22" stroke="url(#logoGrad)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M10 18V26M16 16V26M22 18V26" stroke="url(#logoGrad2)" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M2 26H30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="4" y1="14" x2="28" y2="22" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38bdf8"/>
+                <stop offset="0.5" stop-color="#6366f1"/>
+                <stop offset="1" stop-color="#f59e0b"/>
+              </linearGradient>
+              <linearGradient id="logoGrad2" x1="10" y1="16" x2="22" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38bdf8"/>
+                <stop offset="1" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Setubandh <span class="hindi-sub">सेतुबंध</span></span>
+          <span class="brand-tag" data-i18n="taglineMini">इंदौर से भारत तक</span>
+        </div>
+      </a>
+
+      <!-- Amazon-Style Prominent Quick Search (Desktop Header) -->
+      <div class="header-search-wrap" role="search">
+        <form class="header-search-form" id="headerSearchForm" onsubmit="event.preventDefault(); handleHeaderSearch();">
+          <label for="headerSearchInput" class="sr-only">स्टार्टअप या सेक्टर खोजें</label>
+          <input type="text" id="headerSearchInput" class="header-search-input" placeholder="स्टार्टअप, सेक्टर, या शहर खोजें (उदा. AgriTech, AI)..." autocomplete="off">
+          <button type="submit" class="header-search-btn" aria-label="Search Startups">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="#directory" class="nav-item" data-i18n="navDirectory">स्टार्टअप डायरेक्टरी</a>
+        <a href="#indore-hub" class="nav-item" data-i18n="navIndore">इंदौर हब 🌟</a>
+        <a href="#how-it-works" class="nav-item" data-i18n="navHow">कैसे काम करता है</a>
+        <a href="#investors" class="nav-item" data-i18n="navInvestors">इन्वेस्टर्स व मेंटर्स</a>
+        <a href="#faq" class="nav-item" data-i18n="navFaq">FAQ</a>
+      </nav>
+
+      <!-- Actions: Theme, Language, Login & Registration -->
+      <div class="nav-actions">
+        <!-- Dynamic Theme Switcher Pill -->
+        <button id="themeToggleBtn" class="theme-pill-btn" aria-label="Switch Theme" title="थीम बदलें (Cycle Theme)">
+          <span class="theme-dot" id="themeDot"></span>
+          <span class="theme-title" id="themeName">🌌 नीलम ऑरोरा</span>
+        </button>
+
+        <!-- Language Switcher Pill -->
+        <button id="langToggleBtn" class="lang-pill-btn" aria-label="Switch Language" title="हिंदी / English">
+          <span class="lang-code active" id="btnHi">हिं</span>
+          <span class="lang-divider">/</span>
+          <span class="lang-code" id="btnEn">EN</span>
+        </button>
+
+        <!-- Auth & Registration Triggers -->
+        <button class="btn btn-secondary btn-sm" id="btnInvestorOpen" data-i18n="btnInvestorLogin">इन्वेस्टर लॉगिन</button>
+        <button class="btn btn-primary btn-sm btn-shimmer register-trigger-btn" data-i18n="btnRegister">स्टार्टअप जोड़ें</button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu (Amazon-Grade Sliding Drawer) -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <div class="brand-text">
+          <span class="brand-name">Setubandh <span class="hindi-sub">सेतुबंध</span></span>
+          <span class="brand-tag">इंदौर से भारत तक</span>
+        </div>
+        <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close Menu">&times;</button>
+      </div>
+
+      <!-- Quick User Account Status Strip -->
+      <div class="drawer-user-status" id="drawerUserStatus">
+        <div class="status-avatar">👤</div>
+        <div class="status-info">
+          <strong id="drawerUserName">अतिथि यूज़र (Guest)</strong>
+          <span id="drawerUserRole">लॉगिन करें या रजिस्टर करें</span>
+        </div>
+      </div>
+
+      <nav class="mobile-nav-links">
+        <div class="drawer-accordion-wrap">
+          <div class="drawer-accordion-header">
+            <a href="#directory" class="mobile-link" data-i18n="navDirectory">🔍 स्टार्टअप डायरेक्टरी</a>
+            <button type="button" class="drawer-chevron-btn" id="drawerCategoryToggle" aria-expanded="false" aria-label="Toggle categories list">
+              <svg class="chevron-icon" viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+          <div class="drawer-submenu hidden" id="drawerCategorySubmenu">
+            <a href="#directory" class="drawer-sublink" data-cat="agritech">🌾 AgriTech (कृषि-तकनीक)</a>
+            <a href="#directory" class="drawer-sublink" data-cat="cleantech">⚡ CleanTech & EV</a>
+            <a href="#directory" class="drawer-sublink" data-cat="fintech">💳 FinTech & SaaS</a>
+            <a href="#directory" class="drawer-sublink" data-cat="d2c">🛍️ D2C & Consumer</a>
+            <a href="#directory" class="drawer-sublink" data-cat="healthtech">🩺 HealthTech</a>
+          </div>
+        </div>
+        <a href="#rising-star" class="mobile-link">🌟 इस माह का उभरता स्टार्टअप</a>
+        <a href="#indore-hub" class="mobile-link" data-i18n="navIndore">🏛️ इंदौर हब व इन्क्यूबेशन</a>
+        <a href="#how-it-works" class="mobile-link" data-i18n="navHow">⚡ कैसे काम करता है (3 स्टेप्स)</a>
+        <a href="#investors" class="mobile-link" data-i18n="navInvestors">💼 इन्वेस्टर्स व मेंटर्स नेटवर्क</a>
+        <a href="#faq" class="mobile-link" data-i18n="navFaq">❓ सामान्य प्रश्न (FAQ)</a>
+      </nav>
+
+      <div class="mobile-drawer-actions">
+        <button class="btn btn-primary btn-block register-trigger-btn primary-drawer-cta" data-i18n="btnRegister">🚀 अपना स्टार्टअप जोड़ें (मुफ़्त 5 min)</button>
+        <div class="drawer-secondary-actions-grid">
+          <button class="btn btn-secondary btn-block" id="mobileInvestorBtn" data-i18n="btnInvestorLogin">🔑 लॉगिन</button>
+          <button class="btn btn-outline btn-block" id="mobileThemeToggleBtn">🎨 थीम बदलें</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-container">
+        
+        <!-- Trust Pill -->
+        <div class="hero-badge-wrap">
+          <div class="hero-trust-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="heroPill">🚀 मध्य प्रदेश का सबसे बड़ा स्वतंत्र स्टार्टअप नेटवर्क</span>
+            <span class="badge-sparkle">✨</span>
+          </div>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="hero-title">
+          <span class="text-gradient-saffron" data-i18n="heroTitle1">इंदौर से भारत तक,</span><br>
+          <span class="text-glow-light" data-i18n="heroTitle2">स्टार्टअप्स का सबसे भरोसेमंद सेतु</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="hero-lead" data-i18n="heroLead">
+          सरकारी पोर्टलों के चक्कर और बिखरे हुए संपर्कों को कहें अलविदा। 5 मिनट में अपना स्टार्टअप रजिस्टर करें, 
+          DPIIT / CIN वेरिफ़ाइड बैज पाएँ, और सीधे टॉप एंजेल इन्वेस्टर्स, इन्क्यूबेटर्स व मेंटर्स से जुड़ें।
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="hero-cta-group">
+          <button class="btn btn-primary btn-lg register-trigger-btn">
+            <span data-i18n="ctaPrimary">अपना स्टार्टअप रजिस्टर करें (5 min)</span>
+            <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <a href="#directory" class="btn btn-secondary btn-lg">
+            <svg class="search-icon-sm" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+            </svg>
+            <span data-i18n="ctaSecondary">स्टार्टअप्स खोजें व कनेक्ट हों</span>
+          </a>
+        </div>
+
+        <!-- Micro Social Proof Badges -->
+        <div class="hero-trust-row">
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 20 20" fill="#10b981"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span data-i18n="trust1">DPIIT / CIN जाँचे गए प्रोफ़ाइल</span>
+          </div>
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 20 20" fill="#38bdf8"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span data-i18n="trust2">DPDP Act 2023 प्राइवेसी सुरक्षित</span>
+          </div>
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 20 20" fill="#f59e0b"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span data-i18n="trust3">मासिक ऑफ़लाइन फाउंडर्स मीटअप</span>
+          </div>
+        </div>
+
+        <!-- Live Numbers Stat Strip: Auto-Running Marquee Ticker (PC और मोबाइल में 1 लाइन में ऑटो चलते हुए) -->
+        <div class="stats-marquee-wrapper" id="statsMarquee">
+          <div class="stats-marquee-track">
+            <!-- Set 1 -->
+            <div class="stats-marquee-group">
+              <div class="ticker-item">
+                <span class="ticker-badge-live">Live</span>
+                <span class="ticker-icon">🚀</span>
+                <span class="ticker-val"><span class="stat-number" data-target="128">128</span>+</span>
+                <span class="ticker-label" data-i18n="statVerified">वेरिफ़ाइड स्टार्टअप्स</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">💰</span>
+                <span class="ticker-val">₹<span class="stat-number" data-target="185">185</span> Cr+</span>
+                <span class="ticker-label" data-i18n="statFunding">कैपिटल व फ़ंडिंग सुविधा</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">👥</span>
+                <span class="ticker-val"><span class="stat-number" data-target="950">950</span>+</span>
+                <span class="ticker-label" data-i18n="statFounders">सक्रिय फ़ाउंडर्स व मेंटर्स</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">📍</span>
+                <span class="ticker-val"><span class="stat-number" data-target="24">24</span></span>
+                <span class="ticker-label" data-i18n="statMeetups">सफल ऑफ़लाइन मीटअप</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">🏛️</span>
+                <span class="ticker-val text-emerald">DPIIT / MCA</span>
+                <span class="ticker-label">सत्यापित प्रोफ़ाइल</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">✨</span>
+                <span class="ticker-val text-saffron">#1 Hub</span>
+                <span class="ticker-label">मध्य भारत का सबसे बड़ा नेटवर्क</span>
+              </div>
+              <span class="ticker-dot">•</span>
+            </div>
+
+            <!-- Set 2 (Seamless Infinite Loop Duplicate) -->
+            <div class="stats-marquee-group" aria-hidden="true">
+              <div class="ticker-item">
+                <span class="ticker-badge-live">Live</span>
+                <span class="ticker-icon">🚀</span>
+                <span class="ticker-val">128+</span>
+                <span class="ticker-label" data-i18n="statVerified">वेरिफ़ाइड स्टार्टअप्स</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">💰</span>
+                <span class="ticker-val">₹185 Cr+</span>
+                <span class="ticker-label" data-i18n="statFunding">कैपिटल व फ़ंडिंग सुविधा</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">👥</span>
+                <span class="ticker-val">950+</span>
+                <span class="ticker-label" data-i18n="statFounders">सक्रिय फ़ाउंडर्स व मेंटर्स</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">📍</span>
+                <span class="ticker-val">24</span>
+                <span class="ticker-label" data-i18n="statMeetups">सफल ऑफ़लाइन मीटअप</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">🏛️</span>
+                <span class="ticker-val text-emerald">DPIIT / MCA</span>
+                <span class="ticker-label">सत्यापित प्रोफ़ाइल</span>
+              </div>
+              <span class="ticker-dot">•</span>
+              <div class="ticker-item">
+                <span class="ticker-icon">✨</span>
+                <span class="ticker-val text-saffron">#1 Hub</span>
+                <span class="ticker-label">मध्य भारत का सबसे बड़ा नेटवर्क</span>
+              </div>
+              <span class="ticker-dot">•</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rising / Emerging Startup Showcase ("उभरता हुआ स्टार्टअप") -->
+        <div class="emerging-startup-spotlight-wrapper" id="rising-star">
+          <div class="emerging-card-glow-border">
+            <div class="emerging-card-inner">
+              <div class="emerging-badge-row">
+                <span class="badge-rising-pill">
+                  <span class="pulse-emerald-dot"></span>
+                  <span class="rising-tag-text">🌟 इस माह का उभरता हुआ स्टार्टअप (Emerging Star)</span>
+                </span>
+                <span class="yoy-badge">🚀 +340% YoY Growth • Seed Stage</span>
+              </div>
+
+              <div class="emerging-content-grid">
+                <div class="emerging-info-col">
+                  <div class="emerging-logo-title-row">
+                    <div class="emerging-logo-box">🌱</div>
+                    <div>
+                      <div class="emerging-title-wrap">
+                        <h3 class="emerging-name">KisanSetu AI (किसानसेतु)</h3>
+                        <span class="verified-tick-badge" title="DPIIT Verified">✓ DPIIT सत्यापित</span>
+                      </div>
+                      <p class="emerging-sub">Agritech & AI Supply Chain • मुख्यालय: इंदौर, म.प्र.</p>
+                    </div>
+                  </div>
+                  <p class="emerging-description">
+                    मालवा और निमाड़ के 24,000+ किसानों को सीधे हाइपरलोकल एग्री-मंडियों और B2B खरीदारों से जोड़ने वाला AI-संचालित मूल्य भविष्यवाणी व आपूर्ति नेटवर्क।
+                  </p>
+                  <div class="emerging-metrics-strip">
+                    <div class="em-metric-item">
+                      <span class="em-val">₹4.8 Cr</span>
+                      <span class="em-lbl">वार्षिक ARR दर</span>
+                    </div>
+                    <div class="em-metric-item">
+                      <span class="em-val">24,000+</span>
+                      <span class="em-lbl">सक्रिय किसान</span>
+                    </div>
+                    <div class="em-metric-item">
+                      <span class="em-val">₹2.2 Cr</span>
+                      <span class="em-lbl">सीड राउंड कमिटेड</span>
+                    </div>
+                    <div class="em-metric-item">
+                      <span class="em-val text-saffron">4.9 ★</span>
+                      <span class="em-lbl">ट्रस्ट स्कोर</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="emerging-action-col">
+                  <div class="emerging-founder-card">
+                    <div class="founder-avatar-wrap">
+                      <div class="avatar-circle">RS</div>
+                      <div>
+                        <div class="founder-name">राहुल शर्मा एवं टीम</div>
+                        <div class="founder-role">Co-founders • IIT Indore Alumni</div>
+                      </div>
+                    </div>
+                    <div class="emerging-btns-row">
+                      <button class="btn btn-primary btn-sm btn-block" onclick="viewStartupDetail('kisansetu')">
+                        <span>पूरा प्रोफ़ाइल देखें &rarr;</span>
+                      </button>
+                      <a href="https://wa.me/916263879076?text=Namaste%20Mohit%20ji,%20I%20want%20to%20connect%20with%20Rising%20Startup%20KisanSetu%20AI%20on%20Setubandh" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm btn-block founder-wa-btn">
+                        <span>💬 फ़ाउंडर से WhatsApp पर जुड़ें</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Directory Search & Filtering Section -->
+    <section class="directory-section" id="directory">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-head-center">
+          <div class="sub-badge" data-i18n="dirBadge">सार्वजनिक डायरेक्टरी</div>
+          <h2 class="section-title" data-i18n="dirTitle">स्टार्टअप्स खोजें और सीधे कनेक्ट हों</h2>
+          <p class="section-lead" data-i18n="dirLead">
+            उद्योग, शहर, फ़ंडिंग स्टेज या कीवर्ड से खोजें। बिना बिचौलियों के सीधे फ़ाउंडर से परिचय पाएँ।
+          </p>
+        </div>
+
+        <!-- Search Bar with Live Controls -->
+        <div class="search-command-bar">
+          <div class="search-input-wrap">
+            <svg class="search-lens" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+            </svg>
+            <input type="text" id="directorySearchInput" class="search-input" placeholder="स्टार्टअप का नाम, सेक्टर, या समस्या खोजें (जैसे AgriTech, AI, Indore, Seed)..." data-i18n-ph="searchPlaceholder" autocomplete="off">
+            <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear Search">&times;</button>
+          </div>
+
+          <!-- City Dropdown Filter -->
+          <div class="custom-select-wrap">
+            <select id="cityFilter" class="filter-select" aria-label="Filter by City">
+              <option value="all" data-i18n="optAllCities">सभी शहर (All Cities)</option>
+              <option value="indore" selected data-i18n="optIndore">📍 केवल इंदौर (Indore Special)</option>
+              <option value="bhopal">भोपाल (Bhopal)</option>
+              <option value="jabalpur">जबलपुर (Jabalpur)</option>
+              <option value="delhi">दिल्ली NCR (Delhi NCR)</option>
+              <option value="bangalore">बेंगलुरु (Bengaluru)</option>
+              <option value="mumbai">मुंबई (Mumbai)</option>
+            </select>
+          </div>
+
+          <!-- Stage Dropdown Filter -->
+          <div class="custom-select-wrap">
+            <select id="stageFilter" class="filter-select" aria-label="Filter by Stage">
+              <option value="all" data-i18n="optAllStages">सभी स्टेज (All Stages)</option>
+              <option value="idea">Idea / Prototype</option>
+              <option value="mvp">MVP Ready</option>
+              <option value="early_revenue">Early Revenue (शुरुआती कमाई)</option>
+              <option value="growth">Growth / Scaling</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Quick Category Pills -->
+        <div class="category-pills-row" id="categoryPills">
+          <button class="cat-pill active" data-cat="all" data-i18n="catAll">सभी (All)</button>
+          <button class="cat-pill" data-cat="agritech">🌾 AgriTech (कृषि-तकनीक)</button>
+          <button class="cat-pill" data-cat="cleantech">⚡ CleanTech & EV</button>
+          <button class="cat-pill" data-cat="fintech">💳 FinTech & MSME SaaS</button>
+          <button class="cat-pill" data-cat="d2c">🛍️ D2C & Consumer</button>
+          <button class="cat-pill" data-cat="healthtech">🩺 HealthTech</button>
+          <button class="cat-pill" data-cat="logistics">🚚 Logistics & Mandi</button>
+          <button class="cat-pill" data-cat="edtech">🎓 EdTech & Skills</button>
+        </div>
+
+        <!-- Startup Cards Grid -->
+        <div class="startup-grid" id="startupGrid">
+          <!-- Cards injected via app.js -->
+        </div>
+
+        <!-- No Results Empty State -->
+        <div class="empty-state hidden" id="emptyState">
+          <div class="empty-icon">🔍</div>
+          <h3 data-i18n="emptyTitle">कोई स्टार्टअप नहीं मिला</h3>
+          <p data-i18n="emptyDesc">अपने सर्च शब्द या फ़िल्टर बदलकर देखें।</p>
+          <button class="btn btn-secondary btn-sm" id="resetFiltersBtn" data-i18n="btnResetFilters">फ़िल्टर रीसेट करें</button>
+        </div>
+
+        <!-- Bottom Action CTA -->
+        <div class="directory-bottom-cta">
+          <p data-i18n="bottomCtaText">क्या आपका स्टार्टअप इस लिस्ट में नहीं है? आज ही जुड़ें और इंदौर के स्टार्टअप इकोसिस्टम का हिस्सा बनें।</p>
+          <button class="btn btn-primary register-trigger-btn" data-i18n="btnRegisterFast">5 मिनट में फ़्री रजिस्टर करें &rarr;</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Special Indore Spotlight Section -->
+    <section class="indore-spotlight-section" id="indore-hub">
+      <div class="container">
+        
+        <div class="indore-banner-card">
+          <div class="indore-content-col">
+            <span class="spotlight-tag" data-i18n="indoreTag">🌟 मालवा व मध्य भारत का पावरहाउस</span>
+            <h2 class="spotlight-title" data-i18n="indoreTitle">
+              इंदौर सिर्फ़ पोहा-जलेबी नहीं,<br>
+              <span class="text-gradient-saffron">भारत की अगली स्टार्टअप राजधानी है</span>
+            </h2>
+            <p class="spotlight-desc" data-i18n="indoreDesc">
+              देश का लगातार 7 बार सबसे साफ़ शहर, आईआईटी + आईआईएम का अनूठा संगम, सुपर कॉरिडोर की आईटी क्रांति 
+              और मेट्रो की तुलना में 60% कम बर्न रेट। मध्य प्रदेश स्टार्टअप नीति के तहत विशेष सीड कैपिटल और 
+              अनुदान का सीधा लाभ उठाएं।
+            </p>
+
+            <div class="indore-key-points">
+              <div class="point-item">
+                <span class="point-icon">🏛️</span>
+                <div>
+                  <h4 data-i18n="indorePt1Title">IIT + IIM इंदौर इनक्यूबेशन</h4>
+                  <p data-i18n="indorePt1Desc">डीप-टेक, पेटेंट और मेंटरशिप के लिए सीधा अकादमिक समर्थन।</p>
+                </div>
+              </div>
+              <div class="point-item">
+                <span class="point-icon">💰</span>
+                <div>
+                  <h4 data-i18n="indorePt2Title">MP स्टार्टअप पॉलिसी ग्रांट्स</h4>
+                  <p data-i18n="indorePt2Desc">किराया प्रतिपूर्ति, पेटेंट सहायता और महिला फ़ाउंडर्स के लिए विशेष इंसेंटिव।</p>
+                </div>
+              </div>
+              <div class="point-item">
+                <span class="point-icon">🤝</span>
+                <div>
+                  <h4 data-i18n="indorePt3Title">सक्रिय एंजेल नेटवर्क</h4>
+                  <p data-i18n="indorePt3Desc">स्थानीय मालवा बिज़नेस लीडर्स और प्रवासी इंदौरी निवेशकों का मजबूत नेटवर्क।</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Meetup Interactive Card -->
+          <div class="meetup-card-col" id="meetup">
+            <div class="meetup-ticket-card">
+              <div class="ticket-header">
+                <span class="live-dot-meetup"></span>
+                <span class="ticket-badge" data-i18n="ticketBadge">मासिक फ़ाउंडर्स मीटअप #19</span>
+              </div>
+              <h3 class="ticket-title" data-i18n="meetupTitle">इंदौर फ़ाउंडर्स & एंजेल मिक्सर</h3>
+              <p class="ticket-venue">📍 सुपर कॉरिडोर इनोवेशन पार्क, विजय नगर / सुपर कॉरिडोर, इंदौर</p>
+              
+              <div class="ticket-details-grid">
+                <div class="ticket-stat">
+                  <span class="t-label" data-i18n="tDate">तारीख</span>
+                  <span class="t-val">15 नवंबर 2026</span>
+                </div>
+                <div class="ticket-stat">
+                  <span class="t-label" data-i18n="tTime">समय</span>
+                  <span class="t-val">शाम 5:30 - 8:30 बजे</span>
+                </div>
+                <div class="ticket-stat">
+                  <span class="t-label" data-i18n="tAttendees">अपेक्षित उपस्थित</span>
+                  <span class="t-val">120+ फाउंडर्स</span>
+                </div>
+                <div class="ticket-stat">
+                  <span class="t-label" data-i18n="tEntry">प्रवेश</span>
+                  <span class="t-val text-emerald" data-i18n="tFree">निःशुल्क (रजिस्ट्रेशन अनिवार्य)</span>
+                </div>
+              </div>
+
+              <div class="ticket-actions">
+                <button class="btn btn-primary btn-block" id="bookMeetupBtn" data-i18n="btnBookMeetup">मीटअप सीट आरक्षित करें &rarr;</button>
+                <span class="ticket-seats-left" data-i18n="seatsLeft">⚠️ केवल 24 सीटें शेष हैं</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- How It Works (4-Step Bridge Framework) -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="container">
+        
+        <div class="section-head-center">
+          <div class="sub-badge" data-i18n="howBadge">पारदर्शी और तेज़</div>
+          <h2 class="section-title" data-i18n="howTitle">सेतुबंध कैसे काम करता है?</h2>
+          <p class="section-lead" data-i18n="howLead">
+            बिना किसी जटिलता के, सिर्फ 4 सरल चरणों में अपने स्टार्टअप को राष्ट्रीय स्तर पर विज़िबिलिटी दिलाएँ।
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <line x1="19" y1="8" x2="19" y2="14"/>
+                <line x1="22" y1="11" x2="16" y2="11"/>
+              </svg>
+            </div>
+            <h3 class="step-heading" data-i18n="step1Title">5 मिनट में प्रोफ़ाइल बनाएँ</h3>
+            <p class="step-desc" data-i18n="step1Desc">
+              फ़ोन OTP से तुरंत साइन-अप। स्टार्टअप का नाम, सेक्टर, स्टेज, टीम साइज़ और पिच डेक जोड़ें।
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="step-heading" data-i18n="step2Title">वेरिफ़ाइड बैज पाएँ</h3>
+            <p class="step-desc" data-i18n="step2Desc">
+              DPIIT, CIN, GST या Udyam नंबर दर्ज करें। हमारी टीम 24 घंटे में प्रामाणिकता जाँचकर 'Verified' बैज जारी करती है।
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <h3 class="step-heading" data-i18n="step3Title">पब्लिक डायरेक्टरी में छाएँ</h3>
+            <p class="step-desc" data-i18n="step3Desc">
+              आपका स्टार्टअप पूरे भारत के निवेशकों, इन्क्यूबेटर्स और कॉर्पोरेट्स को सर्च रिज़ल्ट्स और Google SEO में दिखता है।
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="step-heading" data-i18n="step4Title">सीधा इन्वेस्टर कनेक्शन</h3>
+            <p class="step-desc" data-i18n="step4Desc">
+              निवेशक और मेंटर्स आपसे सीधा 'कनेक्ट रिक्वेस्ट' भेजते हैं। बिना कमीशन, बिना बिचौलियों के पूंजी जुटाएँ।
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Investor & Mentors Hub Section -->
+    <section class="investor-hub-section" id="investors">
+      <div class="container">
+        
+        <div class="investor-split-card">
+          <div class="inv-text-col">
+            <span class="sub-badge" data-i18n="invBadge">निवेशकों और मेंटर्स के लिए</span>
+            <h2 class="section-title text-left" data-i18n="invTitle">भारत के टियर-2 और टियर-3 हीरों को सबसे पहले पहचानें</h2>
+            <p class="inv-lead" data-i18n="invLead">
+              सिलिकॉन वैली या केवल बेंगलुरु-दिल्ली तक सीमित न रहें। मालवा, मध्य प्रदेश और मध्य भारत के ग्राउंड-लेवल 
+              प्रॉफ़िटेबल बिज़नेस और हाई-ग्रोथ टेक स्टार्टअप्स को सीधे अपनी वॉचलिस्ट में जोड़ें।
+            </p>
+
+            <ul class="inv-perks-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <span data-i18n="invPerk1"><strong>प्री-स्क्रीन और वेरिफ़ाइड:</strong> DPIIT व MCA डेटा से जाँचे हुए संस्थापक।</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span data-i18n="invPerk2"><strong>सीधा पिच डेक एक्सेस:</strong> बिना कोल्ड ईमेल के तुरंत 1-क्लिक एक्सेस।</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span data-i18n="invPerk3"><strong>स्थानीय डील्स & को-इन्वेस्टमेंट:</strong> इंदौर एंजल्स व सिंडिकेट्स के साथ साझेदारी।</span>
+              </li>
+            </ul>
+
+            <div class="inv-cta-row">
+              <button class="btn btn-primary" id="investorRegisterBtn" data-i18n="btnInvestorRegister">इन्वेस्टर / मेंटर के रूप में जुड़ें</button>
+              <a href="#directory" class="btn btn-secondary" data-i18n="btnBrowseDeck">पिच डेक्स देखें</a>
+            </div>
+          </div>
+
+          <!-- Featured Investor Showcase -->
+          <div class="inv-showcase-col">
+            <div class="inv-panel-card">
+              <div class="inv-panel-header">
+                <span class="inv-header-title" data-i18n="networkTitle">पार्टनर एंजेल नेटवर्क व इन्क्यूबेटर्स</span>
+                <span class="inv-badge-live">Live</span>
+              </div>
+              <div class="inv-partner-grid">
+                <div class="partner-chip">🏢 Malwa Angel Network</div>
+                <div class="partner-chip">🏛️ IIT Indore I-Hub</div>
+                <div class="partner-chip">🌱 MP Seed Capital Hub</div>
+                <div class="partner-chip">🚀 Central India Syndicate</div>
+                <div class="partner-chip">🏭 Pithampur Industrial League</div>
+                <div class="partner-chip">🎓 IIM Indore Incubation</div>
+              </div>
+
+              <!-- Quote from prominent investor -->
+              <div class="inv-quote-box">
+                <p class="quote-text">
+                  "इंदौर के संस्थापकों में जो व्यावहारिक बिज़नेस समझ और यूनिट इकोनॉमिक्स का अनुशासन है, वह असाधारण है। सेतुबंध सही समय पर सही पुल बनकर आया है।"
+                </p>
+                <div class="quote-author">
+                  <div class="author-avatar">रा</div>
+                  <div>
+                    <span class="author-name">राजेश माहेश्वरी</span>
+                    <span class="author-role">एंजेल इन्वेस्टर, मालwa एंजेल्स</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section (Accessible Accordion) -->
+    <section class="faq-section" id="faq">
+      <div class="container faq-container">
+        
+        <div class="section-head-center">
+          <div class="sub-badge" data-i18n="faqBadge">सवाल-जवाब</div>
+          <h2 class="section-title" data-i18n="faqTitle">अक्सर पूछे जाने वाले सवाल</h2>
+          <p class="section-lead" data-i18n="faqLead">सेतुबंध, वेरिफ़िकेशन और रजिस्ट्रेशन से जुड़ी सारी जानकारियाँ।</p>
+        </div>
+
+        <div class="faq-accordion-group" id="faqAccordion">
+          <!-- FAQ 1 -->
+          <div class="faq-card open">
+            <button class="faq-question-btn" aria-expanded="true">
+              <span data-i18n="q1">क्या सेतुबंध पर स्टार्टअप रजिस्टर करना बिल्कुल मुफ़्त है?</span>
+              <span class="faq-arrow">&minus;</span>
+            </button>
+            <div class="faq-answer-content">
+              <p data-i18n="a1">
+                हाँ! MVP फ़ेज़ में स्टार्टअप्स के लिए रजिस्ट्रेशन, प्रोफ़ाइल बनाना और डायरेक्टरी लिस्टिंग 100% मुफ़्त है। हमारा उद्देश्य मध्य भारत के हर योग्य संस्थापक को मंच देना है।
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span data-i18n="q2">वेरिफ़ाइड (Verified) बैज कैसे मिलता है?</span>
+              <span class="faq-arrow">&plus;</span>
+            </button>
+            <div class="faq-answer-content">
+              <p data-i18n="a2">
+                रजिस्ट्रेशन के समय या बाद में आप अपना DPIIT नंबर, CIN (कंपनी निगमन नंबर), GST नंबर या Udyam रजिस्ट्रेशन दर्ज कर सकते हैं। हमारी एडमिन टीम दस्तावेज़ों की प्राथमिक जाँच 24 घंटे में करके वेरिफ़ाइड टिक जारी करती है।
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span data-i18n="q3">क्या सिर्फ़ इंदौर के स्टार्टअप्स ही जुड़ सकते हैं?</span>
+              <span class="faq-arrow">&plus;</span>
+            </button>
+            <div class="faq-answer-content">
+              <p data-i18n="a3">
+                नहीं! सेतुबंध की शुरुआत इंदौर और मालवा क्षेत्र से हुई है, लेकिन पूरा प्लेटफ़ॉर्म पूरे भारत (Pan-India) के सभी शहरों — भोपाल, जबलपुर, ग्वालियर, जयपुर, पुणे, आदि — के संस्थापकों के लिए खुला है।
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span data-i18n="q4">मेरे डेटा और पिच डेक की सुरक्षा की क्या गारंटी है?</span>
+              <span class="faq-arrow">&plus;</span>
+            </button>
+            <div class="faq-answer-content">
+              <p data-i18n="a4">
+                हम भारत के डिजिटल पर्सनल डेटा प्रोटेक्शन एक्ट 2023 (DPDP Act 2023) का पूर्ण अनुपालन करते हैं। आपकी अनुमति के बिना आपकी निजी संपर्क जानकारी किसी को नहीं दी जाती। आपका पिच डेक सुरक्षित क्लाउड स्टोरेज पर होस्ट रहता है।
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span data-i18n="q5">इन्वेस्टर या मेंटर से संपर्क कैसे होता है?</span>
+              <span class="faq-arrow">&plus;</span>
+            </button>
+            <div class="faq-answer-content">
+              <p data-i18n="a5">
+                किसी भी स्टार्टअप कार्ड पर 'कनेक्ट रिक्वेस्ट' बटन दबाकर आप एक संक्षिप्त परिचय संदेश भेज सकते हैं। संस्थापक के स्वीकार करने पर दोनों पक्षों को सीधे ईमेल/फ़ोन द्वारा कनेक्ट कर दिया जाता है।
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Bottom Launch CTA Banner -->
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="final-cta-card">
+          <div class="cta-inner-text">
+            <h2 class="final-cta-title" data-i18n="finalTitle">
+              अपने स्टार्टअप को वह मंच दें जिसका वह हकदार है
+            </h2>
+            <p class="final-cta-desc" data-i18n="finalDesc">
+              500+ संस्थापक और 40+ सक्रिय निवेशक पहले ही सेतुबंध नेटवर्क का हिस्सा बन चुके हैं। आज ही शुरुआत करें।
+            </p>
+            <div class="final-cta-buttons">
+              <button class="btn btn-primary btn-lg register-trigger-btn" data-i18n="btnRegisterNow">
+                मुफ़्त में स्टार्टअप जोड़ें (5 min) &rarr;
+              </button>
+              <a href="#meetup" class="btn btn-secondary btn-lg" data-i18n="btnJoinMeetup">
+                अगले मीटअप में आएँ
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top-grid">
+        
+        <div class="footer-brand-col">
+          <div class="brand-logo footer-logo">
+            <div class="logo-mark">
+              <svg viewBox="0 0 32 32" fill="none" class="bridge-icon">
+                <path d="M4 22C10 14 22 14 28 22" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+                <path d="M10 18V26M16 16V26M22 18V26" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M2 26H30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="brand-name">Setubandh <span class="hindi-sub">सेतुबंध</span></span>
+          </div>
+          <p class="footer-motto" data-i18n="footerMotto">
+            इंदौर से भारत तक, स्टार्टअप्स का सबसे भरोसेमंद डायरेक्टरी, नेटवर्किंग व इन्वेस्टर कनेक्ट नेटवर्क।
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter / X" class="social-link">𝕏</a>
+            <a href="#" aria-label="LinkedIn" class="social-link">in</a>
+            <a href="#" aria-label="WhatsApp Community" class="social-link">💬</a>
+            <a href="#" aria-label="YouTube" class="social-link">▶</a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="f-col-title" data-i18n="fCol1Title">एक्सप्लोर करें</h4>
+          <ul>
+            <li><a href="#directory" data-i18n="navDirectory">स्टार्टअप डायरेक्टरी</a></li>
+            <li><a href="#indore-hub" data-i18n="navIndore">इंदौर हब 🌟</a></li>
+            <li><a href="#how-it-works" data-i18n="navHow">काम करने का तरीका</a></li>
+            <li><a href="#investors" data-i18n="navInvestors">इन्वेस्टर्स पोर्टल</a></li>
+            <li><a href="#meetup" data-i18n="meetupTitle">इंदौर मीटअप</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="f-col-title" data-i18n="fCol2Title">सेक्टर डायरेक्टरी</h4>
+          <ul>
+            <li><a href="#directory" onclick="filterBySector('agritech')">AgriTech कृषि</a></li>
+            <li><a href="#directory" onclick="filterBySector('cleantech')">CleanTech & EV</a></li>
+            <li><a href="#directory" onclick="filterBySector('fintech')">FinTech & SaaS</a></li>
+            <li><a href="#directory" onclick="filterBySector('d2c')">D2C & Consumer</a></li>
+            <li><a href="#directory" onclick="filterBySector('healthtech')">HealthTech</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="f-col-title" data-i18n="fCol3Title">कानूनी व सुरक्षा</h4>
+          <ul>
+            <li><a href="#" id="privacyPolicyLink" data-i18n="privacyPolicy">प्राइवेसी पॉलिसी (DPDP 2023)</a></li>
+            <li><a href="#" id="termsLink" data-i18n="terms">उपयोग की शर्तें (Terms)</a></li>
+            <li><a href="#" id="verifyGuidelinesLink" data-i18n="verifyRules">वेरिफ़िकेशन नियम</a></li>
+            <li><a href="mailto:support@setubandh.in">support@setubandh.in</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 Setubandh (सेतुबंध). सभी अधिकार सुरक्षित। गर्व से इंदौर, मध्य प्रदेश में निर्मित।</p>
+        
+        <!-- Designer Credit with Direct WhatsApp Connect (Rule 31: Discrete Architecture Attribution) -->
+        <div class="designer-signature-box">
+          <span class="designer-tag-label">Website Design & Architecture by</span>
+          <a href="https://wa.me/916263879076?text=Namaste%20Mohit%20ji,%20I%20visited%20Setubandh%20and%20want%20to%20connect!" target="_blank" rel="noopener noreferrer" class="designer-wa-link" title="Chat directly with Mohit P Jain on WhatsApp">
+            <span class="designer-avatar-sm">👨‍💻</span>
+            <strong class="designer-name">Mohit P Jain</strong>
+            <span class="designer-phone">💬 WhatsApp Connect ↗</span>
+            <span class="designer-wa-badge">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.088.072.189.014.305-.058.115-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 1.742 1.487 2.666.273.243.504.398.679.497.234.133.372.115.51-.044.138-.159.593-.693.751-.931.159-.238.318-.198.535-.117.217.081 1.373.647 1.61.765.237.118.395.176.452.274.058.099.058.572-.086.977z"/>
+              </svg>
+              Direct WhatsApp
+            </span>
+          </a>
+        </div>
+
+        <div class="indore-badge">Cleanest City of Bharat 🇮🇳</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Direct WhatsApp Contact Pill -->
+  <aside class="floating-designer-bubble" aria-label="Direct Connect with Designer Mohit P Jain">
+    <a href="https://wa.me/916263879076?text=Namaste%20Mohit%20ji,%20I%20am%20on%20Setubandh%20and%20want%20to%20discuss%20a%20project!" target="_blank" rel="noopener noreferrer" class="bubble-link" title="Chat with Mohit P Jain on WhatsApp">
+      <span class="bubble-pulse"></span>
+      <span class="bubble-avatar">👨‍💻</span>
+      <div class="bubble-text">
+        <span class="bubble-title">Mohit P Jain</span>
+        <span class="bubble-status">● Chat on WhatsApp ↗</span>
+      </div>
+      <span class="bubble-wa-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="#25D366">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+        </svg>
+      </span>
+    </a>
+  </aside>
+
+  <!-- Modal: Startup Registration (5-min MVP Flow) -->
+  <div class="modal-backdrop" id="registerModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="modal-pre" data-i18n="modalPre">5 मिनट रजिस्ट्रेशन • निःशुल्क</span>
+          <h3 class="modal-title" data-i18n="modalTitle">अपना स्टार्टअप जोड़ें</h3>
+        </div>
+        <button class="modal-close-btn" id="closeRegisterModal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <form id="startupRegistrationForm" class="modal-form">
+        <div class="form-step active" id="modalStep1">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="startupName" class="form-label" data-i18n="lblStartupName">स्टार्टअप का नाम *</label>
+              <input type="text" id="startupName" class="form-control" placeholder="उदा. KisanSetu, MedLink" required>
+            </div>
+            <div class="form-group">
+              <label for="startupCity" class="form-label" data-i18n="lblStartupCity">शहर (City) *</label>
+              <select id="startupCity" class="form-control" required>
+                <option value="Indore" selected>Indore (इंदौर)</option>
+                <option value="Bhopal">Bhopal (भोपाल)</option>
+                <option value="Jabalpur">Jabalpur (जबलपुर)</option>
+                <option value="Delhi NCR">Delhi NCR</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="Other">अन्य (Other)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="startupSector" class="form-label" data-i18n="lblSector">सेक्टर (Sector) *</label>
+              <select id="startupSector" class="form-control" required>
+                <option value="AgriTech" selected>AgriTech (कृषि-तकनीक)</option>
+                <option value="CleanTech & EV">CleanTech & EV</option>
+                <option value="FinTech">FinTech & MSME SaaS</option>
+                <option value="D2C">D2C & Consumer</option>
+                <option value="HealthTech">HealthTech</option>
+                <option value="Logistics">Logistics & Supply Chain</option>
+                <option value="EdTech">EdTech</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="startupStage" class="form-label" data-i18n="lblStage">स्टेज (Stage) *</label>
+              <select id="startupStage" class="form-control" required>
+                <option value="Idea">Idea / Prototype</option>
+                <option value="MVP" selected>MVP Ready</option>
+                <option value="Early Revenue">Early Revenue (शुरुआती कमाई)</option>
+                <option value="Growth">Growth / Scale</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="startupTagline" class="form-label" data-i18n="lblTagline">एक वाक्य में परिचय (Tagline, Max 140 chars) *</label>
+            <input type="text" id="startupTagline" class="form-control" placeholder="उदा. मालवा के किसानों के लिए AI आधारित सटीक खेती समाधान" maxlength="140" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="founderPhone" class="form-label" data-i18n="lblPhone">फ़ाउंडर मोबाइल नंबर (OTP सत्यापन के लिए) *</label>
+              <div class="phone-input-group">
+                <span class="country-prefix">+91</span>
+                <input type="tel" id="founderPhone" class="form-control" placeholder="98260XXXXX" pattern="[0-9]{10}" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="founderEmail" class="form-label" data-i18n="lblEmail">ईमेल (Email) *</label>
+              <input type="email" id="founderEmail" class="form-control" placeholder="founder@yourstartup.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="verifyDocType" class="form-label" data-i18n="lblVerifyDoc">वेरिफ़ाइड बैज के लिए दस्तावेज़ (वैकल्पिक पर अनुशंसित)</label>
+            <div class="doc-input-row">
+              <select id="verifyDocType" class="form-control doc-type-select">
+                <option value="DPIIT">DPIIT पहचान नंबर</option>
+                <option value="CIN">कंपनी CIN नंबर</option>
+                <option value="GST">GSTIN नंबर</option>
+                <option value="Udyam">MSME Udyam नंबर</option>
+              </select>
+              <input type="text" id="verifyDocNumber" class="form-control" placeholder="उदा. DIPP12345 या 23AAACH...">
+            </div>
+            <small class="form-hint" data-i18n="verifyHint">DPIIT / CIN जोड़ने से आपके प्रोफ़ाइल पर हरा 'Verified' बैज आ जाता है।</small>
+          </div>
+
+          <div class="form-group consent-check">
+            <label class="checkbox-label">
+              <input type="checkbox" id="dpdpConsent" required checked>
+              <span data-i18n="consentText">मैं DPDP Act 2023 के तहत सेतुबंध डायरेक्टरी में अपने स्टार्टअप की सार्वजनिक लिस्टिंग की सहमति देता/देती हूँ।</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitRegBtn" data-i18n="btnSubmitReg">
+            रजिस्ट्रेशन सबमिट करें (Submit Startup) &rarr;
+          </button>
+        </div>
+
+        <div class="form-step success-step hidden" id="modalSuccess">
+          <div class="success-icon-badge">🎉</div>
+          <h4 data-i18n="successTitle">बधाई! आपका स्टार्टअप दर्ज हो गया है</h4>
+          <p data-i18n="successDesc">
+            आपकी प्रोफ़ाइल सेतुबंध डायरेक्टरी में जोड़ दी गई है। हमारे एडमिन 24 घंटे में आपके वेरिफ़िकेशन दस्तावेज़ की पुष्टि करेंगे।
+          </p>
+          <div class="success-actions">
+            <button type="button" class="btn btn-secondary btn-block" id="viewSubmittedCardBtn" data-i18n="btnViewCard">डायरेक्टरी में देखें</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Connect Request (Investor / Founder Connect) -->
+  <div class="modal-backdrop" id="connectModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="modal-pre" data-i18n="connectPre">सीधा परिचय • शून्य कमीशन</span>
+          <h3 class="modal-title" id="connectModalTitle">संस्थापक से जुड़ें</h3>
+        </div>
+        <button class="modal-close-btn" id="closeConnectModal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <form id="connectForm" class="modal-form">
+        <div id="connectFormBody">
+          <div class="connect-target-box" id="connectTargetCard">
+            <!-- Dynamic info about startup -->
+          </div>
+
+          <div class="form-group">
+            <label for="connectorName" class="form-label" data-i18n="lblYourName">आपका नाम *</label>
+            <input type="text" id="connectorName" class="form-control" placeholder="उदा. अमित शर्मा" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="connectorRole" class="form-label" data-i18n="lblYourRole">आपकी भूमिका *</label>
+              <select id="connectorRole" class="form-control" required>
+                <option value="Angel Investor">एंजेल इन्वेस्टर (Angel Investor)</option>
+                <option value="Mentor / Advisor">मेंटर / सलाहकार (Mentor)</option>
+                <option value="Incubator / Accelerator">इन्क्यूबेटर प्रतिनिधि (Incubator)</option>
+                <option value="Fellow Founder">साथी फ़ाउंडर (Fellow Founder)</option>
+                <option value="Customer / Partner">संभावित ग्राहक या पार्टनर</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="connectorPhone" class="form-label" data-i18n="lblContact">फ़ोन या लिंक्डइन *</label>
+              <input type="text" id="connectorPhone" class="form-control" placeholder="+91 98XXX या linkedin.com/in/..." required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="connectorMsg" class="form-label" data-i18n="lblMsg">संक्षिप्त संदेश (Pitch Note) *</label>
+            <textarea id="connectorMsg" class="form-control" rows="3" placeholder="उदा. मैं मालवा एंजेल नेटवर्क से हूँ, आपकी AgriTech तकनीक में रुचि है। क्या हम 15 मिनट की ज़ूम कॉल कर सकते हैं?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" data-i18n="btnSendConnect">कनेक्ट रिक्वेस्ट भेजें &rarr;</button>
+        </div>
+
+        <div class="form-step success-step hidden" id="connectSuccess">
+          <div class="success-icon-badge">📨</div>
+          <h4 data-i18n="connectSentTitle">कनेक्ट रिक्वेस्ट भेज दी गई है!</h4>
+          <p data-i18n="connectSentDesc">संस्थापक को आपका परिचय भेज दिया गया है। वे आपसे सीधे संपर्क करेंगे।</p>
+          <button type="button" class="btn btn-secondary btn-block" id="closeConnectSuccessBtn" data-i18n="btnClose">बंद करें</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Startup Full Profile Details (Amazon Product / Profile Card Inspection) -->
+  <div class="modal-backdrop" id="startupProfileModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Startup Detailed Profile">
+    <div class="modal-dialog modal-dialog-lg">
+      <div class="modal-header">
+        <div>
+          <span class="modal-pre" id="profModalPre">स्टार्टअप प्रोफ़ाइल • सत्यापित विवरण</span>
+          <h3 class="modal-title" id="profModalTitle">स्टार्टअप विवरण</h3>
+        </div>
+        <button class="modal-close-btn" id="closeProfileModal" aria-label="Close Profile Modal">&times;</button>
+      </div>
+
+      <div class="profile-modal-body" id="profileModalBody">
+        <!-- Content injected dynamically via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Investor & Founder Auth (Phone OTP & Email Simulation / Local Session) -->
+  <div class="modal-backdrop" id="authModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Sign In or Register">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="modal-pre" id="authModalPre">सुरक्षित लॉगिन • DPDP Act 2023</span>
+          <h3 class="modal-title" id="authModalTitle">इन्वेस्टर व फाउंडर लॉगिन</h3>
+        </div>
+        <button class="modal-close-btn" id="closeAuthModal" aria-label="Close Auth Modal">&times;</button>
+      </div>
+
+      <!-- Auth Step 1: Phone / Email Input -->
+      <form id="authPhoneForm" class="modal-form">
+        <div id="authStep1">
+          <p class="auth-subtext">अपना 10-अंकों का मोबाइल नंबर दर्ज करें। आपको एक 4-अंकों का सत्यापन OTP भेजा जाएगा।</p>
+          <div class="form-group">
+            <label for="authPhoneInput" class="form-label">मोबाइल नंबर *</label>
+            <div class="phone-input-group">
+              <span class="country-prefix">+91</span>
+              <input type="tel" id="authPhoneInput" class="form-control" placeholder="98260XXXXX" pattern="[0-9]{10}" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="authRoleSelect" class="form-label">आपकी प्रोफ़ाइल भूमिका *</label>
+            <select id="authRoleSelect" class="form-control">
+              <option value="investor">💼 एंजेल इन्वेस्टर / VC (Angel / Investor)</option>
+              <option value="founder">🚀 स्टार्टअप फ़ाउंडर (Founder)</option>
+              <option value="mentor">🧭 मेंटर / इन्क्यूबेटर (Mentor)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnRequestOtp">OTP भेजें (Get OTP) &rarr;</button>
+        </div>
+
+        <!-- Auth Step 2: OTP Verification -->
+        <div id="authStep2" class="hidden">
+          <p class="auth-subtext">नंबर <strong id="authTargetPhoneDisplay">+91 ...</strong> पर 4-अंकों का OTP भेजा गया है।</p>
+          <div class="form-group">
+            <label for="otpCodeInput" class="form-label">4-अंकों का OTP दर्ज करें *</label>
+            <input type="text" id="otpCodeInput" class="form-control text-center otp-input" placeholder="••••" maxlength="6" required>
+            <span class="form-hint" id="otpDemoHint">डेमो के लिए OTP: <strong>1234</strong> या कोई भी 4 अंक दर्ज करें।</span>
+          </div>
+          <button type="button" class="btn btn-primary btn-block btn-lg" id="btnVerifyOtp">सत्यापित करें और लॉगिन हों &rarr;</button>
+          <button type="button" class="btn btn-link btn-block" id="btnResendOtp">OTP दोबारा भेजें</button>
+        </div>
+
+        <!-- Auth Step 3: Logged In State / Dashboard Preview -->
+        <div id="authStep3" class="hidden text-center">
+          <div class="success-icon-badge">✅</div>
+          <h4 id="authSuccessWelcome">स्वागत है!</h4>
+          <p id="authSuccessMeta">आपकी इन्वेस्टर/फाउंडर प्रोफ़ाइल सक्रिय है।</p>
+          <div class="auth-user-card" id="authUserCard">
+            <!-- Dynamic info -->
+          </div>
+          <div class="auth-actions-group">
+            <button type="button" class="btn btn-secondary btn-block" id="btnLogoutSession">लॉगआउट करें</button>
+            <button type="button" class="btn btn-primary btn-block" id="closeAuthSuccessBtn">डायरेक्टरी एक्सप्लोर करें</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Amazon-Style Sticky Mobile Bottom Navigation (Always Accessible Touch Zone) -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Quick Actions">
+    <a href="#directory" class="bottom-nav-item active" id="bNavDirectory">
+      <span class="b-icon">🔍</span>
+      <span class="b-label" data-i18n="navDirectory">खोजें</span>
+    </a>
+    <a href="#rising-star" class="bottom-nav-item" id="bNavRising">
+      <span class="b-icon">🌟</span>
+      <span class="b-label">उभरता स्टार</span>
+    </a>
+    <button type="button" class="bottom-nav-item register-trigger-btn" id="bNavRegister">
+      <span class="b-icon-highlight">🚀</span>
+      <span class="b-label">रजिस्टर</span>
+    </button>
+    <a href="#indore-hub" class="bottom-nav-item" id="bNavHub">
+      <span class="b-icon">🏛️</span>
+      <span class="b-label">इंदौर हब</span>
+    </a>
+    <button type="button" class="bottom-nav-item" id="bNavAccount">
+      <span class="b-icon">👤</span>
+      <span class="b-label" id="bNavAccountLabel">लॉगिन</span>
+    </button>
+  </nav>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-shelf" id="toastShelf" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
